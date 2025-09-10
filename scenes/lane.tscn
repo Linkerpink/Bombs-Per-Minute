@@ -1,0 +1,86 @@
+[gd_scene load_steps=7 format=3 uid="uid://hijd88fh3njf"]
+
+[ext_resource type="Script" uid="uid://csasol5lvaneu" path="res://scripts/lane.gd" id="1_6c0se"]
+[ext_resource type="Texture2D" uid="uid://4sc2fo6k0b40" path="res://sprites/white.png" id="1_i20lb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i20lb"]
+size = Vector2(114, 24)
+
+[sub_resource type="Animation" id="Animation_8qan7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hit Window/Hit Window Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.294118, 0.294118, 1, 0.607843)]
+}
+
+[sub_resource type="Animation" id="Animation_6c0se"]
+resource_name = "hit"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hit Window/Hit Window Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.294118, 0.294118, 1, 0.607843), Color(0.294118, 0.294118, 1, 1), Color(0.294118, 0.294118, 1, 0.607843)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t6mhj"]
+_data = {
+&"RESET": SubResource("Animation_8qan7"),
+&"hit": SubResource("Animation_6c0se")
+}
+
+[node name="Lane" type="Node2D"]
+script = ExtResource("1_6c0se")
+
+[node name="Lane Visual" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Lane Visual"]
+scale = Vector2(128, 720)
+texture = ExtResource("1_i20lb")
+
+[node name="Hit Window" type="Area2D" parent="."]
+position = Vector2(0, 259)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hit Window"]
+shape = SubResource("RectangleShape2D_i20lb")
+
+[node name="Hit Window Sprite" type="Sprite2D" parent="Hit Window"]
+unique_name_in_owner = true
+modulate = Color(0.294118, 0.294118, 1, 0.607843)
+self_modulate = Color(0, 0, 1, 1)
+position = Vector2(0, -3.57628e-07)
+scale = Vector2(114, 24)
+texture = ExtResource("1_i20lb")
+
+[node name="Input Text" type="RichTextLabel" parent="Hit Window"]
+unique_name_in_owner = true
+offset_left = -57.0
+offset_top = -13.0
+offset_right = 57.0
+offset_bottom = 12.0
+bbcode_enabled = true
+text = "fortnite"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Note Spawn Point" type="Node2D" parent="."]
+position = Vector2(0, -360)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_t6mhj")
+}
