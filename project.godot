@@ -23,11 +23,13 @@ window/size/viewport_height=720
 [file_customization]
 
 folder_colors={
+"res://assets/": "red",
+"res://assets/audio/": "purple",
+"res://assets/sprites/": "yellow",
 "res://maps/": "orange",
 "res://scenes/": "blue",
 "res://scripts/": "green",
-"res://scripts/resource scripts/": "yellow",
-"res://sprites/": "red"
+"res://scripts/resource scripts/": "yellow"
 }
 
 [global_group]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dvio6sv756eai"
+path="res://.godot/imported/Fortnite Coral Chorus Lobby Music (C1S8 Battle Pass).mp3-ab9aa552b2c4020c1675918e2fd993a2.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/Fortnite Coral Chorus Lobby Music (C1S8 Battle Pass).mp3"
+dest_files=["res://.godot/imported/Fortnite Coral Chorus Lobby Music (C1S8 Battle Pass).mp3-ab9aa552b2c4020c1675918e2fd993a2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

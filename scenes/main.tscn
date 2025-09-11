@@ -1,20 +1,21 @@
 [gd_scene load_steps=5 format=3 uid="uid://bf1ccgabaq0f"]
 
-[ext_resource type="Texture2D" uid="uid://4sc2fo6k0b40" path="res://sprites/white.png" id="1_0wfyh"]
+[ext_resource type="Texture2D" uid="uid://4sc2fo6k0b40" path="res://assets/sprites/white.png" id="1_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://hijd88fh3njf" path="res://scenes/lane.tscn" id="1_o5qli"]
-[ext_resource type="PackedScene" uid="uid://p8msrji7o5tx" path="res://scenes/map_manager.tscn" id="1_sugp2"]
-[ext_resource type="Resource" uid="uid://bwy132m1ftt70" path="res://maps/fortnite.tres" id="2_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://p8msrji7o5tx" path="res://scenes/conductor.tscn" id="1_sugp2"]
+[ext_resource type="PackedScene" uid="uid://bo81qmyxws1fm" path="res://scenes/song_ui.tscn" id="2_jyhfs"]
 
 [node name="Main" type="Node2D"]
 
-[node name="Map Manager" parent="." node_paths=PackedStringArray("lanes") instance=ExtResource("1_sugp2")]
-map = ExtResource("2_jyhfs")
-lanes = [NodePath("../Lanes Holder/Lane 0"), NodePath("../Lanes Holder/Lane 1"), NodePath("../Lanes Holder/Lane 2"), NodePath("../Lanes Holder/Lane 3")]
+[node name="Conductor" parent="." instance=ExtResource("1_sugp2")]
 
 [node name="Background" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 1)
 scale = Vector2(1280, 720)
 texture = ExtResource("1_0wfyh")
+
+[node name="Song UI" parent="." instance=ExtResource("2_jyhfs")]
+unique_name_in_owner = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -39,3 +40,5 @@ input_value = "J"
 position = Vector2(195, 0)
 hit_key = "hit_3"
 input_value = "K"
+
+[editable path="Song UI"]
