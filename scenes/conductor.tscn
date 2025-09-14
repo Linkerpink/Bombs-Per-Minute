@@ -1,13 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://p8msrji7o5tx"]
+[gd_scene load_steps=2 format=3 uid="uid://p8msrji7o5tx"]
 
 [ext_resource type="Script" uid="uid://b4aj8r7g1at0r" path="res://scripts/conductor.gd" id="1_m27ba"]
-[ext_resource type="AudioStream" uid="uid://dvio6sv756eai" path="res://assets/audio/Fortnite Coral Chorus Lobby Music (C1S8 Battle Pass).mp3" id="2_emm5y"]
 
-[node name="Conductor" type="AudioStreamPlayer"]
+[node name="Conductor" type="AudioStreamPlayer" groups=["conductor"]]
 bus = &"Music"
 script = ExtResource("1_m27ba")
-song_bpm = 168
-song_audio = ExtResource("2_emm5y")
 
 [node name="Start Timer" type="Timer" parent="."]
 process_callback = 0

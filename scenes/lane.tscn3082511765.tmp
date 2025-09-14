@@ -11,60 +11,36 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Hit Score:modulate")
+tracks/0/path = NodePath("Hit Window/Hit Window Sprite:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Hit Score:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 128)]
+"values": [Color(0.294118, 0.294118, 1, 0.607843)]
 }
 
 [sub_resource type="Animation" id="Animation_6c0se"]
-resource_name = "hit_feedback"
-length = 0.5
+resource_name = "hit"
+length = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Hit Score:modulate")
+tracks/0/path = NodePath("Hit Window/Hit Window Sprite:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0666667, 0.25, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.0333333, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Hit Score:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 128), Vector2(0, 92)]
+"values": [Color(0.294118, 0.294118, 1, 0.607843), Color(0.294118, 0.294118, 1, 1), Color(0.294118, 0.294118, 1, 0.607843)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t6mhj"]
 _data = {
 &"RESET": SubResource("Animation_8qan7"),
-&"hit_score": SubResource("Animation_6c0se")
+&"hit": SubResource("Animation_6c0se")
 }
 
 [node name="Lane" type="Node2D"]
@@ -101,12 +77,12 @@ text = "fortnite"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Hit Score" type="Node2D" parent="."]
+[node name="Hit Feedback" type="Node2D" parent="."]
+unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0)
 position = Vector2(0, 128)
 
-[node name="Hit Score Text" type="RichTextLabel" parent="Hit Score"]
-unique_name_in_owner = true
+[node name="Hit Feedback Text" type="RichTextLabel" parent="Hit Feedback"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -125,24 +101,13 @@ text = "Perfect!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Hit Score Animation Player" type="AnimationPlayer" parent="."]
-unique_name_in_owner = true
-libraries = {
-&"": SubResource("AnimationLibrary_t6mhj")
-}
-
 [node name="Note Spawn Point" type="Node2D" parent="."]
 position = Vector2(0, -360)
 
-[node name="Hit Effect Animation Player" type="AnimationPlayer" parent="."]
-
-[node name="Hit Effect" type="Node2D" parent="." groups=["hit_window"]]
-position = Vector2(0, 235)
-
-[node name="Hit Effect Sprite" type="Sprite2D" parent="Hit Effect"]
-position = Vector2(0, 9)
-scale = Vector2(114, 6)
-texture = ExtResource("1_i20lb")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_t6mhj")
+}
 
 [connection signal="area_entered" from="Hit Window" to="." method="_on_hit_window_area_entered"]
 [connection signal="area_exited" from="Hit Window" to="." method="_on_hit_window_area_exited"]

@@ -1,9 +1,12 @@
 extends AudioStreamPlayer
+class_name Conductor
 
 #region Variables
-@export var song_bpm : int = 120 # The beats per minute in the song
-@export var song_measures : int = 4 # The amount of measures in a beat. For a 4/4 time signature, this would be 4. You can also make this 8 for more precice mapping capabilities
+var song_bpm : int # The beats per minute in the song
+var song_measures : int # The amount of measures in a beat. For a 4/4 time signature, this would be 4
+var song_scroll_speed : float
 @export var song_audio : AudioStream
+@onready var charter = %Charter
 
 var song_position = 0.0
 var song_position_in_beats = 1
@@ -20,13 +23,16 @@ var time_off_beat = 0.0
 signal beat(position)
 signal measure(position)
 
-
 @onready var song_position_in_beats_text : RichTextLabel = $"../Song UI/MarginContainer/Debug UI/Song Position In Beats Text"
 @onready var current_measure_text : RichTextLabel = $"../Song UI/MarginContainer/Debug UI/Current Measure Text"
 #endregion
 
 func _ready() -> void:
+	song_bpm = charter.map.bpm
+	song_measures = charter.map.measures
+	song_scroll_speed = charter.map.scroll_speed
 	seconds_per_beat = 60.0 / song_bpm
+	stream = charter.map.audio
 	if song_audio != null:
 		stream = song_audio
 	else:
@@ -39,6 +45,9 @@ func _physics_process(delta: float) -> void:
 		song_position_in_beats = int(floor(song_position / seconds_per_beat)) + beats_before_start
 		_report_beat()
 		_update_ui()
+		
+	if Input.is_action_just_pressed("restart"):
+		get_tree().reload_current_scene()
 
 func _report_beat():
 	if last_reported_beat < song_position_in_beats:
@@ -48,6 +57,11 @@ func _report_beat():
 		emit_signal("measure", current_measure)
 		last_reported_beat = song_position_in_beats
 		current_measure += 1
+
+func note_to_time(measure: int, beat: int, subdivision: int, bpm: float, beats_per_measure: int, subdivision_size: int):
+	var seconds_per_beat = 60.0 / bpm
+	var total_beats = measure * beats_per_measure + beat + (float(subdivision) / subdivision_size)
+	return total_beats * seconds_per_beat
 
 func play_with_beat_offset(_num):
 	beats_before_start = _num
