@@ -73,6 +73,7 @@ script = ExtResource("1_6c0se")
 [node name="Lane Visual" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Lane Visual"]
+self_modulate = Color(0.14901961, 0.15686275, 0.15686275, 1)
 scale = Vector2(128, 720)
 texture = ExtResource("1_i20lb")
 
@@ -124,6 +125,7 @@ bbcode_enabled = true
 text = "Perfect!"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Hit Score Animation Player" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true

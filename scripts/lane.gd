@@ -8,6 +8,8 @@ extends Node2D
 @onready var hit_score_animation_player : AnimationPlayer = %"Hit Score Animation Player"
 @onready var hit_score_text : RichTextLabel = %"Hit Score Text"
 
+@onready var song_manager : SongManager = %"Song Manager"
+
 enum note_score_states
 {
 	None,
@@ -41,20 +43,26 @@ func _process(delta: float) -> void:
 				hit_score_text.text = "OK."
 			note_score_states.Bomb:
 				_hit_bomb()
-				hit_score_text.text = "[shake] KABOOM!"
+				hit_score_text.text = "[shake][color=red]KABOOM!"
 			note_score_states.None:
-				_play_hit_score_animation()
+				_miss_note()
 				hit_score_text.text = "Miss."
 
 func _hit_note():
 	colliding_note.get_parent().queue_free()
 	colliding_note = null
 	_play_hit_score_animation()
-	
+	song_manager.hit_note()
+
+func _miss_note():
+	_play_hit_score_animation()
+	song_manager.miss_note()
+
 func _hit_bomb():
 	colliding_note.get_parent().queue_free()
 	colliding_note = null
 	_play_hit_score_animation()
+	song_manager.hit_bomb()
 	
 func _play_hit_score_animation():
 	hit_score_animation_player.stop()
