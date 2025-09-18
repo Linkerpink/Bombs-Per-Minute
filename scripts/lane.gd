@@ -14,6 +14,7 @@ enum note_score_states
 	Perfect,
 	Good,
 	Okay,
+	Bomb,
 }
 
 var note_score_state : note_score_states = note_score_states.None
@@ -38,11 +39,19 @@ func _process(delta: float) -> void:
 			note_score_states.Okay:
 				_hit_note()
 				hit_score_text.text = "OK."
+			note_score_states.Bomb:
+				_hit_bomb()
+				hit_score_text.text = "[shake] KABOOM!"
 			note_score_states.None:
 				_play_hit_score_animation()
 				hit_score_text.text = "Miss."
 
 func _hit_note():
+	colliding_note.get_parent().queue_free()
+	colliding_note = null
+	_play_hit_score_animation()
+	
+func _hit_bomb():
 	colliding_note.get_parent().queue_free()
 	colliding_note = null
 	_play_hit_score_animation()
@@ -65,6 +74,10 @@ func _on_hit_window_area_entered(area: Area2D) -> void:
 		if note_score_state != note_score_states.Perfect and note_score_state != note_score_states.Good:
 			note_score_state = note_score_states.Okay
 			colliding_note = area
+	
+	if area.is_in_group("bomb"):
+		note_score_state = note_score_states.Bomb
+		colliding_note = area
 
 func _on_hit_window_area_exited(area: Area2D) -> void:
 	if area.is_in_group("perfect"):
@@ -74,6 +87,9 @@ func _on_hit_window_area_exited(area: Area2D) -> void:
 		note_score_state = note_score_states.None
 	
 	if area.is_in_group("okay"):
+		note_score_state = note_score_states.None
+		
+	if area.is_in_group("bomb"):
 		note_score_state = note_score_states.None
 	
 	colliding_note = null

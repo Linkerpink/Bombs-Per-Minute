@@ -38,5 +38,6 @@ func spawn_note(note_data: Dictionary):
 	note.position = Vector2(lane_node.position.x, -720)
 
 	note.set("hit_time", note_data["time"])
+	note.set("type", note_data["type"])
 
 	active_notes.append(note)

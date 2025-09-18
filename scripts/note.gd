@@ -3,6 +3,12 @@ extends Node2D
 var conductor : Conductor
 var scroll_speed : float
 var hit_time : float = 0.0
+var type : String = "note"
+var length : float = 0.0
+
+@onready var normal : Node2D = %Normal
+@onready var bomb : Node2D = %Bomb
+@onready var setup_timer : Timer = %"Setup Timer"
 
 signal hit_note
 
@@ -15,3 +21,12 @@ func _process(delta: float) -> void:
 		push_error("conductor not found in note!")
 	var time_until_hit = hit_time - conductor.song_position
 	position.y = 200 - time_until_hit * scroll_speed
+
+func _on_setup_timer_timeout() -> void:
+	match type:
+		"note":
+			normal.show()
+			bomb.queue_free()
+		"bomb":
+			bomb.show()
+			normal.queue_free()

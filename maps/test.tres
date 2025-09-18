@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Map" load_steps=3 format=3 uid="uid://dxgw7ulndftag"]
+
+[ext_resource type="Script" uid="uid://d27dmnb4fubjl" path="res://scripts/resource scripts/map.gd" id="1_f18j1"]
+[ext_resource type="AudioStream" uid="uid://dvio6sv756eai" path="res://assets/audio/Fortnite Coral Chorus Lobby Music (C1S8 Battle Pass).mp3" id="1_kgkcp"]
+
+[resource]
+script = ExtResource("1_f18j1")
+audio = ExtResource("1_kgkcp")
+scroll_speed = 300.0
+metadata/_custom_type_script = "uid://d27dmnb4fubjl"

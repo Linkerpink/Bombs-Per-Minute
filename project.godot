@@ -12,13 +12,14 @@ config_version=5
 
 config/name="Rythm Game"
 run/main_scene="uid://bf1ccgabaq0f"
-config/features=PackedStringArray("4.4", "GL Compatibility")
+config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+window/stretch/mode="viewport"
 
 [file_customization]
 
@@ -40,6 +41,7 @@ conductor=""
 perfect=""
 good=""
 okay=""
+bomb=""
 
 [input]
 

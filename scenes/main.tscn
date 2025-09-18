@@ -5,13 +5,13 @@
 [ext_resource type="PackedScene" uid="uid://p8msrji7o5tx" path="res://scenes/conductor.tscn" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://bqci8w2w1xy6s" path="res://scenes/charter.tscn" id="1_tefeu"]
 [ext_resource type="PackedScene" uid="uid://bo81qmyxws1fm" path="res://scenes/song_ui.tscn" id="2_jyhfs"]
-[ext_resource type="Resource" uid="uid://bwy132m1ftt70" path="res://maps/fortnite.tres" id="2_o6xl0"]
+[ext_resource type="Resource" uid="uid://dxgw7ulndftag" path="res://maps/test.tres" id="2_tefeu"]
 
 [node name="Main" type="Node2D"]
 
 [node name="Charter" parent="." instance=ExtResource("1_tefeu")]
 unique_name_in_owner = true
-map = ExtResource("2_o6xl0")
+map = ExtResource("2_tefeu")
 
 [node name="Conductor" parent="." instance=ExtResource("1_sugp2")]
 unique_name_in_owner = true
