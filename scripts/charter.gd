@@ -1,6 +1,6 @@
 extends Node
 
-@export var map : Map
+var map : Map
 @onready var note_scene : PackedScene = preload("res://scenes/note.tscn")
 @onready var conductor : Conductor = %Conductor
 @export var note_spawn_ahead : float = 2.0
@@ -10,6 +10,7 @@ var note_index := 0
 var active_notes := []
 
 func _ready() -> void:
+	map = globals.current_map
 	var subdivision_size := 4
 	for note in map.notes:
 		note["time"] = conductor.note_to_time(

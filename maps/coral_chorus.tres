@@ -1,14 +1,14 @@
-[gd_resource type="Resource" script_class="Map" load_steps=4 format=3 uid="uid://dxgw7ulndftag"]
+[gd_resource type="Resource" script_class="Map" load_steps=4 format=3 uid="uid://b3dyjjhfbrdpu"]
 
-[ext_resource type="Script" uid="uid://d27dmnb4fubjl" path="res://scripts/resource scripts/map.gd" id="1_f18j1"]
-[ext_resource type="AudioStream" uid="uid://dvio6sv756eai" path="res://assets/audio/Fortnite Coral Chorus Lobby Music (C1S8 Battle Pass).mp3" id="1_kgkcp"]
-[ext_resource type="Texture2D" uid="uid://bp5mrbg4cg870" path="res://assets/sprites/bomb.png" id="1_yxj26"]
+[ext_resource type="Texture2D" uid="uid://don2c23r1y0bn" path="res://assets/sprites/coral chorus.jpg" id="1_kwp20"]
+[ext_resource type="AudioStream" uid="uid://dvio6sv756eai" path="res://assets/audio/Fortnite Coral Chorus Lobby Music (C1S8 Battle Pass).mp3" id="2_wo0v7"]
+[ext_resource type="Script" uid="uid://d27dmnb4fubjl" path="res://scripts/resource scripts/map.gd" id="3_3s8hf"]
 
 [resource]
-script = ExtResource("1_f18j1")
-name = "test"
-audio = ExtResource("1_kgkcp")
-album_cover = ExtResource("1_yxj26")
+script = ExtResource("3_3s8hf")
+name = "Coral Chorus"
+audio = ExtResource("2_wo0v7")
+album_cover = ExtResource("1_kwp20")
 bpm = 168.0
 scroll_speed = 400.0
 notes = Array[Dictionary]([{
@@ -18,13 +18,13 @@ notes = Array[Dictionary]([{
 "subdivision": 0,
 "type": "note"
 }, {
-"beat": 5,
+"beat": 2,
 "lane": 0,
 "measure": 0,
 "subdivision": 0,
 "type": "note"
 }, {
-"beat": 6,
+"beat": 3,
 "lane": 0,
 "measure": 0,
 "subdivision": 0,

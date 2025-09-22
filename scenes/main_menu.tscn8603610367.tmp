@@ -1,0 +1,174 @@
+[gd_scene load_steps=7 format=3 uid="uid://be01bwdwhdxkf"]
+
+[ext_resource type="Script" uid="uid://ct03tx1w2hpwg" path="res://scripts/main_menu.gd" id="1_ekxnf"]
+[ext_resource type="Texture2D" uid="uid://bp5mrbg4cg870" path="res://assets/sprites/bomb.png" id="1_l6cm7"]
+[ext_resource type="Script" uid="uid://d27dmnb4fubjl" path="res://scripts/resource scripts/map.gd" id="2_rtw2f"]
+[ext_resource type="Texture2D" uid="uid://don2c23r1y0bn" path="res://assets/sprites/coral chorus.jpg" id="3_bqqt6"]
+[ext_resource type="Resource" uid="uid://dxgw7ulndftag" path="res://maps/test.tres" id="4_8ln24"]
+[ext_resource type="Resource" uid="uid://bwy132m1ftt70" path="res://maps/fortnite.tres" id="6_oa1go"]
+
+[node name="Main Menu" type="Control" groups=["main_menu"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ekxnf")
+all_maps = Array[ExtResource("2_rtw2f")]([ExtResource("6_oa1go"), ExtResource("4_8ln24")])
+
+[node name="Main Menu UI" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Logo" type="TextureRect" parent="Main Menu UI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -58.0
+offset_right = 58.0
+offset_bottom = 145.0
+grow_horizontal = 2
+texture = ExtResource("1_l6cm7")
+
+[node name="Start Text" type="RichTextLabel" parent="Main Menu UI"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -425.0
+offset_top = -67.0
+offset_right = 425.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 48
+bbcode_enabled = true
+text = "Press Enter or Space to start"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Song Select UI" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Back Text" type="RichTextLabel" parent="Song Select UI"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -67.0
+offset_right = 662.0
+grow_vertical = 0
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "Press ESC or backspace to go back"
+fit_content = true
+vertical_alignment = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Song Select UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.55200005
+anchor_top = 0.011000001
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.560059
+offset_top = -7.9200006
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Menu Maps" type="VBoxContainer" parent="Song Select UI/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Album Cover" type="TextureRect" parent="Song Select UI"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 1
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 332.0
+offset_bottom = 332.0
+texture = ExtResource("3_bqqt6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Song Select UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 0.453
+anchor_bottom = 0.84400004
+offset_right = 0.15997314
+offset_bottom = 2.3199463
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 32
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Song Select UI/VBoxContainer"]
+layout_mode = 2
+
+[node name="Name Text" type="RichTextLabel" parent="Song Select UI/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(230, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "FORTNITE"
+fit_content = true
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Song Select UI/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+
+[node name="Difficulty Text" type="RichTextLabel" parent="Song Select UI/VBoxContainer/HBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "[color=yellow][font_size={64]*[/font_size][/color] 5/5"
+fit_content = true
+vertical_alignment = 1
+
+[node name="Start Song Button" type="Button" parent="Song Select UI/VBoxContainer"]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+
+[node name="Start Text" type="RichTextLabel" parent="Song Select UI/VBoxContainer/Start Song Button"]
+custom_minimum_size = Vector2(575.655, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "Start"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Song Select UI/VBoxContainer/Start Song Button" to="." method="_on_start_song_button_pressed"]

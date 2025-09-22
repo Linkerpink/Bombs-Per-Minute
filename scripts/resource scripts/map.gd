@@ -3,6 +3,7 @@ class_name Map
 
 @export var name : String = "Map Name"
 @export var audio : AudioStream
+@export var album_cover : Texture2D
 @export var bpm : float = 120
 @export var measures : int
 @export var scroll_speed : float = 10
