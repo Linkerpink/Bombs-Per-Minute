@@ -40,5 +40,7 @@ func spawn_note(note_data: Dictionary):
 
 	note.set("hit_time", note_data["time"])
 	note.set("type", note_data["type"])
+	note.set("end_beat", note_data["end_beat"])
+	note.set("end_subdivision", note_data["end_subdivision"])
 
 	active_notes.append(note)

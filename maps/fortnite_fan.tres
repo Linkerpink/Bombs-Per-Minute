@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Map" load_steps=2 format=3 uid="uid://dyi4655jtcrad"]
+
+[ext_resource type="Script" uid="uid://d27dmnb4fubjl" path="res://scripts/resource scripts/map.gd" id="1_etpvv"]
+
+[resource]
+script = ExtResource("1_etpvv")
+metadata/_custom_type_script = "uid://d27dmnb4fubjl"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://hijd88fh3njf"]
+[gd_scene load_steps=10 format=3 uid="uid://hijd88fh3njf"]
 
 [ext_resource type="Script" uid="uid://csasol5lvaneu" path="res://scripts/lane.gd" id="1_6c0se"]
 [ext_resource type="Texture2D" uid="uid://4sc2fo6k0b40" path="res://assets/sprites/white.png" id="1_i20lb"]
@@ -65,6 +65,67 @@ tracks/1/keys = {
 _data = {
 &"RESET": SubResource("Animation_8qan7"),
 &"hit_score": SubResource("Animation_6c0se")
+}
+
+[sub_resource type="Animation" id="Animation_4mobq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hit Effect Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(114, 6)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hit Effect Sprite:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_t6mhj"]
+resource_name = "hit_effect"
+length = 0.175
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hit Effect Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 6), Vector2(114, 6)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hit Effect Sprite:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.16666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_055i0"]
+_data = {
+&"RESET": SubResource("Animation_4mobq"),
+&"hit_effect": SubResource("Animation_t6mhj")
 }
 
 [node name="Lane" type="Node2D"]
@@ -137,12 +198,14 @@ libraries = {
 position = Vector2(0, -360)
 
 [node name="Hit Effect Animation Player" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_055i0")
+}
 
-[node name="Hit Effect" type="Node2D" parent="." groups=["hit_window"]]
-position = Vector2(0, 235)
-
-[node name="Hit Effect Sprite" type="Sprite2D" parent="Hit Effect"]
-position = Vector2(0, 9)
+[node name="Hit Effect Sprite" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(0, 244)
 scale = Vector2(114, 6)
 texture = ExtResource("1_i20lb")
 

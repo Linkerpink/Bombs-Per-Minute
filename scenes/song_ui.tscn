@@ -12,6 +12,22 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
+[node name="Hp Progress Bar" type="TextureProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.71300006
+anchor_top = 0.43500003
+anchor_right = 0.72300005
+anchor_bottom = 0.878
+offset_left = 0.35992432
+offset_top = -0.2000122
+offset_right = 0.5599365
+offset_bottom = -0.16003418
+value = 100.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_progress = ExtResource("1_js1lp")
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -44,28 +60,13 @@ vertical_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 785
-theme_override_constants/margin_top = 185
-theme_override_constants/margin_right = 290
-theme_override_constants/margin_bottom = 0
-
-[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer/MarginContainer"]
-layout_mode = 2
-value = 100.0
-nine_patch_stretch = true
-texture_under = ExtResource("1_js1lp")
-texture_over = ExtResource("1_js1lp")
-texture_progress = ExtResource("1_js1lp")
-
-[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer"]
-layout_mode = 2
 theme_override_constants/margin_left = 825
 
-[node name="Score Info Stuff UI" type="VBoxContainer" parent="MarginContainer/MarginContainer2"]
+[node name="Score Info Stuff UI" type="VBoxContainer" parent="MarginContainer/MarginContainer"]
 layout_mode = 2
 alignment = 2
 
-[node name="Streak Text" type="RichTextLabel" parent="MarginContainer/MarginContainer2/Score Info Stuff UI" groups=["streak_text"]]
+[node name="Streak Text" type="RichTextLabel" parent="MarginContainer/MarginContainer/Score Info Stuff UI" groups=["streak_text"]]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
@@ -75,7 +76,7 @@ bbcode_enabled = true
 text = "Streak: 9999999"
 fit_content = true
 
-[node name="Combo Multiplier Text" type="RichTextLabel" parent="MarginContainer/MarginContainer2/Score Info Stuff UI" groups=["combo_multiplier_text"]]
+[node name="Combo Multiplier Text" type="RichTextLabel" parent="MarginContainer/MarginContainer/Score Info Stuff UI" groups=["combo_multiplier_text"]]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
@@ -85,7 +86,7 @@ bbcode_enabled = true
 text = "x[color=purple]4"
 fit_content = true
 
-[node name="Score Text" type="RichTextLabel" parent="MarginContainer/MarginContainer2/Score Info Stuff UI" groups=["score_text"]]
+[node name="Score Text" type="RichTextLabel" parent="MarginContainer/MarginContainer/Score Info Stuff UI" groups=["score_text"]]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 48)
 layout_mode = 2

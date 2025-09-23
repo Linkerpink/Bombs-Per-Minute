@@ -1,12 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5lkip0epesx0"]
+[gd_scene load_steps=2 format=3 uid="uid://c5lkip0epesx0"]
 
 [ext_resource type="Script" uid="uid://0bbkvtcdeku8" path="res://scripts/menu_map.gd" id="1_yllxy"]
-[ext_resource type="Resource" uid="uid://bwy132m1ftt70" path="res://maps/fortnite.tres" id="2_6hlun"]
 
 [node name="Menu Map" type="Button"]
 custom_minimum_size = Vector2(580, 128)
 script = ExtResource("1_yllxy")
-map = ExtResource("2_6hlun")
 
 [node name="Song Text" type="RichTextLabel" parent="."]
 custom_minimum_size = Vector2(580, 0)

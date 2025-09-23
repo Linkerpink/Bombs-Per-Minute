@@ -8,6 +8,8 @@ extends Node2D
 @onready var hit_score_animation_player : AnimationPlayer = %"Hit Score Animation Player"
 @onready var hit_score_text : RichTextLabel = %"Hit Score Text"
 
+@onready var hit_effect_animation_player : AnimationPlayer = %"Hit Effect Animation Player"
+
 @onready var song_manager : SongManager = %"Song Manager"
 
 enum note_score_states
@@ -53,6 +55,8 @@ func _hit_note():
 	colliding_note = null
 	_play_hit_score_animation()
 	song_manager.hit_note()
+	hit_effect_animation_player.stop()
+	hit_effect_animation_player.play("hit_effect")
 
 func _miss_note():
 	_play_hit_score_animation()

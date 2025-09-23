@@ -12,6 +12,9 @@ var score_text : RichTextLabel
 var streak_text : RichTextLabel
 var combo_multiplier_text : RichTextLabel
 
+var hp : int = 100
+@onready var hp_progress_bar : TextureProgressBar = %"Song UI".find_child("Hp Progress Bar")
+
 func _ready() -> void:
 	score_text = get_tree().get_first_node_in_group("score_text")
 	streak_text = get_tree().get_first_node_in_group("streak_text")
@@ -24,6 +27,7 @@ func _ready() -> void:
 func hit_note():
 	score += 300 * combo_multiplier
 	_handle_streak()
+	_change_hp(2.5)
 	
 func hit_bomb():
 	bombs_hit += 1
@@ -32,6 +36,7 @@ func hit_bomb():
 func miss_note():
 	notes_missed += 1
 	break_combo()
+	_change_hp(-5)
 	
 func break_combo():
 	streak = 0
@@ -39,6 +44,20 @@ func break_combo():
 	score_text.text = "Score: " + str(score)
 	streak_text.text = "Streak: " + str(streak)
 	_handle_combo_multiplier_text()
+	
+func _change_hp(_value : int):
+	hp += _value
+	hp_progress_bar.value = hp
+	
+	if hp > 100:
+		hp = 100
+		
+	if hp <= 0:
+		hp = 0
+		_die() 
+
+func _die():
+	print("DE DOOD")
 
 func _handle_streak():
 	streak += 1

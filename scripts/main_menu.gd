@@ -24,6 +24,7 @@ var menu_state : MenuStates
 func _ready() -> void:
 	set_menu_state(MenuStates.Main)
 	_load_maps()
+	_choose_random_map()
 
 func _process(delta: float) -> void:
 	match menu_state:
@@ -49,6 +50,10 @@ func set_selected_map(_map : Map):
 	album_cover.texture = _map.album_cover
 	name_text.text = _map.name
 	selected_map = _map
+	
+func _choose_random_map():
+	var _rnd = randi_range(0, all_maps.size() - 1)
+	set_selected_map(all_maps[_rnd])
 
 func _load_maps():
 	for m in all_maps:

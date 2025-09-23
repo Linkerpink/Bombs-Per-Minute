@@ -4,7 +4,8 @@ var conductor : Conductor
 var scroll_speed : float
 var hit_time : float = 0.0
 var type : String = "note"
-var length : float = 0.0
+var end_beat : int = 0
+var end_subdivision : int = 0
 
 @onready var normal : Node2D = %Normal
 @onready var bomb : Node2D = %Bomb
@@ -23,6 +24,10 @@ func _process(delta: float) -> void:
 	position.y = 200 - time_until_hit * scroll_speed
 
 func _on_setup_timer_timeout() -> void:
+	print(end_beat)
+	if (end_beat > 0):
+		type = "long"
+	
 	match type:
 		"note":
 			normal.show()
@@ -30,3 +35,6 @@ func _on_setup_timer_timeout() -> void:
 		"bomb":
 			bomb.show()
 			normal.queue_free()
+		"long":
+			normal.show()
+			bomb.queue_free()
