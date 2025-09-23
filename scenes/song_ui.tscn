@@ -66,16 +66,6 @@ theme_override_constants/margin_left = 825
 layout_mode = 2
 alignment = 2
 
-[node name="Streak Text" type="RichTextLabel" parent="MarginContainer/MarginContainer/Score Info Stuff UI" groups=["streak_text"]]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 48)
-layout_mode = 2
-theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/normal_font_size = 32
-bbcode_enabled = true
-text = "Streak: 9999999"
-fit_content = true
-
 [node name="Combo Multiplier Text" type="RichTextLabel" parent="MarginContainer/MarginContainer/Score Info Stuff UI" groups=["combo_multiplier_text"]]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 64)
@@ -84,6 +74,16 @@ theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/normal_font_size = 48
 bbcode_enabled = true
 text = "x[color=purple]4"
+fit_content = true
+
+[node name="Combo Text" type="RichTextLabel" parent="MarginContainer/MarginContainer/Score Info Stuff UI" groups=["combo_text"]]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "Combo: 9999999"
 fit_content = true
 
 [node name="Score Text" type="RichTextLabel" parent="MarginContainer/MarginContainer/Score Info Stuff UI" groups=["score_text"]]

@@ -50,8 +50,9 @@ func _process(delta: float) -> void:
 				_miss_note()
 				hit_score_text.text = "Miss."
 
-func _hit_note():
-	colliding_note.get_parent().queue_free()
+func _hit_note(): 
+	print("hit noted")
+	colliding_note.get_parent().get_parent().queue_free()
 	colliding_note = null
 	_play_hit_score_animation()
 	song_manager.hit_note()
@@ -63,10 +64,11 @@ func _miss_note():
 	song_manager.miss_note()
 
 func _hit_bomb():
-	colliding_note.get_parent().queue_free()
-	colliding_note = null
-	_play_hit_score_animation()
+	print("hit_bomb")
 	song_manager.hit_bomb()
+	colliding_note.get_parent().queue_free()
+	_play_hit_score_animation()
+	colliding_note = null
 	
 func _play_hit_score_animation():
 	hit_score_animation_player.stop()

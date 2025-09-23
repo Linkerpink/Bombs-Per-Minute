@@ -1,23 +1,79 @@
 [gd_resource type="Resource" script_class="Map" load_steps=4 format=3 uid="uid://dxgw7ulndftag"]
 
 [ext_resource type="Script" uid="uid://d27dmnb4fubjl" path="res://scripts/resource scripts/map.gd" id="1_f18j1"]
-[ext_resource type="AudioStream" uid="uid://dvio6sv756eai" path="res://assets/audio/Fortnite Coral Chorus Lobby Music (C1S8 Battle Pass).mp3" id="1_kgkcp"]
 [ext_resource type="Texture2D" uid="uid://bp5mrbg4cg870" path="res://assets/sprites/bomb.png" id="1_yxj26"]
+[ext_resource type="AudioStream" uid="uid://dyco2ddmk47au" path="res://assets/audio/Vine Boom sound effect meme.mp3" id="2_yxj26"]
 
 [resource]
 script = ExtResource("1_f18j1")
 name = "test"
-audio = ExtResource("1_kgkcp")
+audio = ExtResource("2_yxj26")
 album_cover = ExtResource("1_yxj26")
-bpm = 168.0
+bpm = 240.0
 scroll_speed = 400.0
 notes = Array[Dictionary]([{
 "beat": 1,
-"end_beat": 5,
-"end_subdivision": 0,
+"end_beat": 0,
+"end_subdivision": 0.0,
 "lane": 0,
 "measure": 0,
 "subdivision": 0,
+"type": "note"
+}, {
+"beat": 1,
+"end_beat": 0,
+"end_subdivision": 0.0,
+"lane": 0,
+"measure": 0,
+"subdivision": 2,
+"type": "note"
+}, {
+"beat": 2,
+"end_beat": 0,
+"end_subdivision": 0.0,
+"lane": 0,
+"measure": 0,
+"subdivision": 0,
+"type": "note"
+}, {
+"beat": 2,
+"end_beat": 0,
+"end_subdivision": 0.0,
+"lane": 0,
+"measure": 0,
+"subdivision": 2,
+"type": "note"
+}, {
+"beat": 3,
+"end_beat": 0,
+"end_subdivision": 0.0,
+"lane": 0,
+"measure": 0,
+"subdivision": 0,
+"type": "note"
+}, {
+"beat": 3,
+"end_beat": 0,
+"end_subdivision": 0.0,
+"lane": 0,
+"measure": 0,
+"subdivision": 2,
+"type": "note"
+}, {
+"beat": 4,
+"end_beat": 0,
+"end_subdivision": 0.0,
+"lane": 0,
+"measure": 0,
+"subdivision": 0,
+"type": "note"
+}, {
+"beat": 4,
+"end_beat": 0,
+"end_subdivision": 0.0,
+"lane": 0,
+"measure": 0,
+"subdivision": 2,
 "type": "note"
 }])
 metadata/_custom_type_script = "uid://d27dmnb4fubjl"

@@ -25,6 +25,8 @@ signal measure(position)
 
 @onready var song_position_in_beats_text : RichTextLabel = $"../Song UI/MarginContainer/Debug UI/Song Position In Beats Text"
 @onready var current_measure_text : RichTextLabel = $"../Song UI/MarginContainer/Debug UI/Current Measure Text"
+
+@onready var song_manager : SongManager = %"Song Manager"
 #endregion
 
 func _ready() -> void:
@@ -45,9 +47,16 @@ func _physics_process(delta: float) -> void:
 		song_position_in_beats = int(floor(song_position / seconds_per_beat)) + beats_before_start
 		_report_beat()
 		_update_ui()
+	if not playing and song_position_in_beats > 1:
+		var sm = song_manager
+		globals.set_results(sm.score, sm.accuracy, sm.best_combo, sm.notes_hit, sm.bombs_hit, sm.notes_missed)
+		get_tree().change_scene_to_file("res://scenes/result_screen.tscn")
 		
 	if Input.is_action_just_pressed("restart"):
 		get_tree().reload_current_scene()
+		
+	if Input.is_action_just_pressed("menu_back"):
+		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
 func _report_beat():
 	if last_reported_beat < song_position_in_beats:

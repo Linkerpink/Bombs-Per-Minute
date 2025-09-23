@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://don2c23r1y0bn"
-path="res://.godot/imported/coral chorus.jpg-c9617a50adbef86a3d31decfd21e152b.ctex"
+uid="uid://c3y0r86seo8ru"
+path="res://.godot/imported/coral chorus.jpg-548c4bed59e8d4c918f951b9b606cb81.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/coral chorus.jpg"
-dest_files=["res://.godot/imported/coral chorus.jpg-c9617a50adbef86a3d31decfd21e152b.ctex"]
+source_file="res://assets/sprites/album covers/coral chorus.jpg"
+dest_files=["res://.godot/imported/coral chorus.jpg-548c4bed59e8d4c918f951b9b606cb81.ctex"]
 
 [params]
 

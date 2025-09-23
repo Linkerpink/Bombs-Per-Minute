@@ -1,0 +1,47 @@
+[gd_resource type="Resource" script_class="Map" load_steps=4 format=3 uid="uid://c1hggqs4f7tg3"]
+
+[ext_resource type="Script" uid="uid://d27dmnb4fubjl" path="res://scripts/resource scripts/map.gd" id="1_b1ipx"]
+[ext_resource type="Texture2D" uid="uid://xhw7hey5cri6" path="res://assets/sprites/album covers/hakken in de mijnen.jpg" id="1_q8hmf"]
+[ext_resource type="AudioStream" uid="uid://cywdx6d4ij2bw" path="res://assets/audio/Vogeljongen - Hakken In De Mijnen.mp3" id="2_s3uio"]
+
+[resource]
+script = ExtResource("1_b1ipx")
+name = "Hakken In De Mijnen"
+audio = ExtResource("2_s3uio")
+album_cover = ExtResource("1_q8hmf")
+bpm = 173.0
+scroll_speed = 500.0
+notes = Array[Dictionary]([{
+"beat": 1,
+"end_beat": 0,
+"end_subdivision": 0.0,
+"lane": 0,
+"measure": 0,
+"subdivision": 0,
+"type": "note"
+}, {
+"beat": 2,
+"end_beat": 0,
+"end_subdivision": 0.0,
+"lane": 0,
+"measure": 0,
+"subdivision": 0,
+"type": "note"
+}, {
+"beat": 3,
+"end_beat": 0,
+"end_subdivision": 0.0,
+"lane": 0,
+"measure": 0,
+"subdivision": 0,
+"type": "note"
+}, {
+"beat": 2,
+"end_beat": 0,
+"end_subdivision": 0.0,
+"lane": 0,
+"measure": 0,
+"subdivision": 0,
+"type": "note"
+}])
+metadata/_custom_type_script = "uid://d27dmnb4fubjl"

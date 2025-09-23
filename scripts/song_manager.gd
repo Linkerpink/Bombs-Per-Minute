@@ -2,14 +2,17 @@ extends Node2D
 class_name SongManager
 
 var score : int = 0
-var streak : int = 0
+var accuracy : float = 100.0
+var combo : int = 0
+var best_combo : int = 0
 var combo_multiplier : int = 1
 
+var notes_hit : int
 var notes_missed : int = 0
 var bombs_hit : int = 0
 
 var score_text : RichTextLabel 
-var streak_text : RichTextLabel
+var combo_text : RichTextLabel
 var combo_multiplier_text : RichTextLabel
 
 var hp : int = 100
@@ -17,16 +20,17 @@ var hp : int = 100
 
 func _ready() -> void:
 	score_text = get_tree().get_first_node_in_group("score_text")
-	streak_text = get_tree().get_first_node_in_group("streak_text")
+	combo_text = get_tree().get_first_node_in_group("combo_text")
 	combo_multiplier_text = get_tree().get_first_node_in_group("combo_multiplier_text")
 	
 	score_text.text = "Score: " + str(score)
-	streak_text.text = "Streak: " + str(streak)
+	combo_text.text = "Combo: " + str(combo)
 	combo_multiplier_text.text = "x[color=blue]" + str(combo_multiplier)
 
 func hit_note():
+	notes_hit
 	score += 300 * combo_multiplier
-	_handle_streak()
+	_handle_combo()
 	_change_hp(2.5)
 	
 func hit_bomb():
@@ -39,10 +43,10 @@ func miss_note():
 	_change_hp(-5)
 	
 func break_combo():
-	streak = 0
+	combo = 0
 	combo_multiplier = 1
 	score_text.text = "Score: " + str(score)
-	streak_text.text = "Streak: " + str(streak)
+	combo_text.text = "combo: " + str(combo)
 	_handle_combo_multiplier_text()
 	
 func _change_hp(_value : int):
@@ -59,13 +63,16 @@ func _change_hp(_value : int):
 func _die():
 	print("DE DOOD")
 
-func _handle_streak():
-	streak += 1
+func _handle_combo():
+	combo += 1
+	
+	if combo > best_combo:
+		best_combo = combo
 	
 	score_text.text = "Score: " + str(score)
-	streak_text.text = "Streak: " + str(streak)
+	combo_text.text = "combo: " + str(combo)
 	
-	match streak:
+	match combo:
 		0:
 			combo_multiplier = 1
 			_handle_combo_multiplier_text()

@@ -1,0 +1,200 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgim54ex5wo7g"]
+
+[ext_resource type="Script" uid="uid://dkk2qppeu5hwt" path="res://scripts/result_screen.gd" id="1_p64tj"]
+[ext_resource type="Texture2D" path="res://assets/sprites/coral chorus.jpg" id="8_vpy16"]
+
+[node name="Result Screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p64tj")
+
+[node name="Album Cover" type="TextureRect" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 0
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 332.0
+offset_bottom = 332.0
+texture = ExtResource("8_vpy16")
+expand_mode = 1
+
+[node name="Main Menu Button" type="Button" parent="."]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -144.0
+offset_right = 256.0
+grow_vertical = 0
+
+[node name="Main Menu Text" type="RichTextLabel" parent="Main Menu Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "Main Menu"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Retry Button" type="Button" parent="."]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -256.0
+offset_top = -144.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Retry Text" type="RichTextLabel" parent="Retry Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "Retry"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 0.453
+anchor_bottom = 0.84400004
+offset_right = 0.15997314
+offset_bottom = 2.3199463
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 32
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Name Text" type="RichTextLabel" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(480, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "FORTNITE"
+fit_content = true
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Difficulty Text" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(92, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "[color=yellow][font_size={64]*[/font_size][/color] 5/5"
+fit_content = true
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -712.0
+offset_bottom = 360.0
+grow_horizontal = 0
+
+[node name="Rank Text" type="RichTextLabel" parent="VBoxContainer2"]
+custom_minimum_size = Vector2(480, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 128
+bbcode_enabled = true
+text = "Rank: S"
+fit_content = true
+vertical_alignment = 1
+
+[node name="Accuracy Text" type="RichTextLabel" parent="VBoxContainer2"]
+custom_minimum_size = Vector2(480, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "Accuracy: 92%"
+fit_content = true
+vertical_alignment = 1
+
+[node name="Score Text" type="RichTextLabel" parent="VBoxContainer2"]
+custom_minimum_size = Vector2(480, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "Score: 324897632423984"
+fit_content = true
+vertical_alignment = 1
+
+[node name="Best Combo Text" type="RichTextLabel" parent="VBoxContainer2"]
+custom_minimum_size = Vector2(480, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "Best Combo: 1200"
+fit_content = true
+vertical_alignment = 1
+
+[node name="Notes Hit Text" type="RichTextLabel" parent="VBoxContainer2"]
+custom_minimum_size = Vector2(480, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "Notes Hit: 3248"
+fit_content = true
+vertical_alignment = 1
+
+[node name="Bombs Hit Text" type="RichTextLabel" parent="VBoxContainer2"]
+custom_minimum_size = Vector2(480, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "Bombs Hit: 29"
+fit_content = true
+vertical_alignment = 1
+
+[node name="Notes Missed Text" type="RichTextLabel" parent="VBoxContainer2"]
+custom_minimum_size = Vector2(480, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "Notes Missed: 57"
+fit_content = true
+vertical_alignment = 1
+
+[connection signal="pressed" from="Main Menu Button" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="Retry Button" to="." method="_on_retry_button_pressed"]

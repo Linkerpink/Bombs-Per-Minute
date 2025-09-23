@@ -46,10 +46,10 @@ perfect=""
 good=""
 okay=""
 bomb=""
-streak_text=""
 combo_multiplier_text=""
 score_text=""
 main_menu=""
+combo_text=""
 
 [input]
 

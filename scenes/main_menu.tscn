@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://be01bwdwhdxkf"]
+[gd_scene load_steps=9 format=3 uid="uid://be01bwdwhdxkf"]
 
 [ext_resource type="Script" uid="uid://ct03tx1w2hpwg" path="res://scripts/main_menu.gd" id="1_ekxnf"]
 [ext_resource type="Texture2D" uid="uid://bp5mrbg4cg870" path="res://assets/sprites/bomb.png" id="1_l6cm7"]
 [ext_resource type="Script" uid="uid://d27dmnb4fubjl" path="res://scripts/resource scripts/map.gd" id="2_rtw2f"]
-[ext_resource type="Texture2D" uid="uid://don2c23r1y0bn" path="res://assets/sprites/coral chorus.jpg" id="3_bqqt6"]
+[ext_resource type="Texture2D" path="res://assets/sprites/coral chorus.jpg" id="3_bqqt6"]
 [ext_resource type="Resource" uid="uid://b3dyjjhfbrdpu" path="res://maps/coral_chorus.tres" id="3_rtw2f"]
+[ext_resource type="Resource" uid="uid://c1hggqs4f7tg3" path="res://maps/hakken_in_de_mijnen.tres" id="3_tbmy8"]
 [ext_resource type="Resource" uid="uid://dxgw7ulndftag" path="res://maps/test.tres" id="4_8ln24"]
 [ext_resource type="Resource" uid="uid://dyi4655jtcrad" path="res://maps/fortnite_fan.tres" id="4_oa1go"]
 
@@ -16,7 +17,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ekxnf")
-all_maps = Array[ExtResource("2_rtw2f")]([ExtResource("3_rtw2f"), ExtResource("4_oa1go"), ExtResource("4_8ln24")])
+all_maps = Array[ExtResource("2_rtw2f")]([ExtResource("3_rtw2f"), ExtResource("4_oa1go"), ExtResource("3_tbmy8"), ExtResource("4_8ln24")])
 
 [node name="Main Menu UI" type="Control" parent="."]
 unique_name_in_owner = true
@@ -110,6 +111,7 @@ offset_top = 32.0
 offset_right = 332.0
 offset_bottom = 332.0
 texture = ExtResource("3_bqqt6")
+expand_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Song Select UI"]
 layout_mode = 1
@@ -128,7 +130,7 @@ layout_mode = 2
 
 [node name="Name Text" type="RichTextLabel" parent="Song Select UI/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(230, 0)
+custom_minimum_size = Vector2(480, 0)
 layout_mode = 2
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/normal_font_size = 28
@@ -138,11 +140,10 @@ fit_content = true
 vertical_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Song Select UI/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(8, 0)
 layout_mode = 2
 
 [node name="Difficulty Text" type="RichTextLabel" parent="Song Select UI/VBoxContainer/HBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(120, 0)
+custom_minimum_size = Vector2(92, 0)
 layout_mode = 2
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/normal_font_size = 28

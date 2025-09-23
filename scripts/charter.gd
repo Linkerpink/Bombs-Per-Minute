@@ -1,6 +1,6 @@
 extends Node
 
-var map : Map
+@export var map : Map
 @onready var note_scene : PackedScene = preload("res://scenes/note.tscn")
 @onready var conductor : Conductor = %Conductor
 @export var note_spawn_ahead : float = 2.0

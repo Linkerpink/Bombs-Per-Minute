@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cywdx6d4ij2bw"
+path="res://.godot/imported/Vogeljongen - Hakken In De Mijnen.mp3-19ceda1b037f3901de018ce014ea22ae.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/Vogeljongen - Hakken In De Mijnen.mp3"
+dest_files=["res://.godot/imported/Vogeljongen - Hakken In De Mijnen.mp3-19ceda1b037f3901de018ce014ea22ae.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
