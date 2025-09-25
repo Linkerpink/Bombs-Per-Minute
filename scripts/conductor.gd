@@ -30,6 +30,7 @@ signal measure(position)
 #endregion
 
 func _ready() -> void:
+	globals.set_results(0,0,0,0,0,0)
 	song_bpm = charter.map.bpm
 	song_measures = charter.map.measures
 	song_scroll_speed = charter.map.scroll_speed
@@ -51,12 +52,6 @@ func _physics_process(delta: float) -> void:
 		var sm = song_manager
 		globals.set_results(sm.score, sm.accuracy, sm.best_combo, sm.notes_hit, sm.bombs_hit, sm.notes_missed)
 		get_tree().change_scene_to_file("res://scenes/result_screen.tscn")
-		
-	if Input.is_action_just_pressed("restart"):
-		get_tree().reload_current_scene()
-		
-	if Input.is_action_just_pressed("menu_back"):
-		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
 func _report_beat():
 	if last_reported_beat < song_position_in_beats:
@@ -99,6 +94,7 @@ func _on_start_timer_timeout() -> void:
 		start_timer.wait_time = start_timer.wait_time - (AudioServer.get_time_to_next_mix() + AudioServer.get_output_latency())
 		start_timer.start()
 	else:
+		#play_from_beat(8,0)
 		play()
 		start_timer.stop()
 	_report_beat()

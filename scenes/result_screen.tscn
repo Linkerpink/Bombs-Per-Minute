@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bgim54ex5wo7g"]
 
 [ext_resource type="Script" uid="uid://dkk2qppeu5hwt" path="res://scripts/result_screen.gd" id="1_p64tj"]
-[ext_resource type="Texture2D" path="res://assets/sprites/coral chorus.jpg" id="8_vpy16"]
+[ext_resource type="Texture2D" uid="uid://c3y0r86seo8ru" path="res://assets/sprites/album covers/coral chorus.jpg" id="8_vpy16"]
 
 [node name="Result Screen" type="Control"]
 layout_mode = 3

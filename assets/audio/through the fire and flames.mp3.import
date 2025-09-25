@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://diqx7jcsaos2x"
+path="res://.godot/imported/through the fire and flames.mp3-7372328b83e3a29510d6183016b159a2.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/through the fire and flames.mp3"
+dest_files=["res://.godot/imported/through the fire and flames.mp3-7372328b83e3a29510d6183016b159a2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

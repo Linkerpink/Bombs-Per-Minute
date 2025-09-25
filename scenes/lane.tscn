@@ -32,6 +32,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(0, 128)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hit Score:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_6c0se"]
 resource_name = "hit_feedback"
@@ -43,10 +55,10 @@ tracks/0/path = NodePath("Hit Score:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0666667, 0.25, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -55,10 +67,22 @@ tracks/1/path = NodePath("Hit Score:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 128), Vector2(0, 92)]
+"values": [Vector2(0, 128)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hit Score:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.025, 0.05),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1.25, 1.25), Vector2(1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t6mhj"]
@@ -166,6 +190,7 @@ vertical_alignment = 1
 [node name="Hit Score" type="Node2D" parent="."]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(0, 128)
+scale = Vector2(1e-05, 1)
 
 [node name="Hit Score Text" type="RichTextLabel" parent="Hit Score"]
 unique_name_in_owner = true

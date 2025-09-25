@@ -35,13 +35,13 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed(hit_key):
 		match note_score_state:
 			note_score_states.Perfect:
-				_hit_note()
+				_hit_note(300)
 				hit_score_text.text = "Perfect!"
 			note_score_states.Good:
-				_hit_note()
+				_hit_note(200)
 				hit_score_text.text = "Good!"
 			note_score_states.Okay:
-				_hit_note()
+				_hit_note(100)
 				hit_score_text.text = "OK."
 			note_score_states.Bomb:
 				_hit_bomb()
@@ -50,12 +50,12 @@ func _process(delta: float) -> void:
 				_miss_note()
 				hit_score_text.text = "Miss."
 
-func _hit_note(): 
+func _hit_note(_amount : int): 
 	print("hit noted")
 	colliding_note.get_parent().get_parent().queue_free()
 	colliding_note = null
 	_play_hit_score_animation()
-	song_manager.hit_note()
+	song_manager.hit_note(_amount)
 	hit_effect_animation_player.stop()
 	hit_effect_animation_player.play("hit_effect")
 

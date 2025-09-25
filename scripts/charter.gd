@@ -1,4 +1,5 @@
 extends Node
+class_name Charter
 
 @export var map : Map
 @onready var note_scene : PackedScene = preload("res://scenes/note.tscn")
@@ -10,8 +11,7 @@ var note_index := 0
 var active_notes := []
 
 func _ready() -> void:
-	map = globals.current_map
-	var subdivision_size := 4
+	#map = globals.current_map
 	for note in map.notes:
 		note["time"] = conductor.note_to_time(
 			note["measure"],
@@ -19,7 +19,7 @@ func _ready() -> void:
 			note["subdivision"],
 			map.bpm,
 			map.measures,
-			subdivision_size
+			map.subdivision_size
 		)
 
 func _process(delta: float) -> void:

@@ -95,3 +95,12 @@ theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
 text = "Score: 99999999"
 fit_content = true
+
+[node name="Exit Progress Bar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+max_value = 2.5
+fill_mode = 5
+nine_patch_stretch = true
+texture_progress = ExtResource("1_js1lp")

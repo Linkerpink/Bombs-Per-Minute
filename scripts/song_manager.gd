@@ -18,6 +18,11 @@ var combo_multiplier_text : RichTextLabel
 var hp : int = 100
 @onready var hp_progress_bar : TextureProgressBar = %"Song UI".find_child("Hp Progress Bar")
 
+var exit_timer = 0
+@onready var exit_progress_bar : TextureProgressBar = %"Song UI".find_child("Exit Progress Bar")
+
+@onready var charter : Charter = %Charter
+
 func _ready() -> void:
 	score_text = get_tree().get_first_node_in_group("score_text")
 	combo_text = get_tree().get_first_node_in_group("combo_text")
@@ -27,11 +32,26 @@ func _ready() -> void:
 	combo_text.text = "Combo: " + str(combo)
 	combo_multiplier_text.text = "x[color=blue]" + str(combo_multiplier)
 
-func hit_note():
-	notes_hit
-	score += 300 * combo_multiplier
+func _process(delta: float) -> void:
+	if Input.is_action_pressed("menu_back"):
+		exit_timer += delta
+	elif exit_timer > 0:
+		exit_timer -= delta
+		
+	exit_progress_bar.value = exit_timer * 200
+		
+	if exit_timer >= 0.5:
+		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+		
+	if Input.is_action_just_pressed("restart"):
+		get_tree().reload_current_scene()
+
+func hit_note(_amount : int):
+	notes_hit += 1
+	score += _amount * combo_multiplier
 	_handle_combo()
 	_change_hp(2.5)
+	#_calculate_accuracy()
 	
 func hit_bomb():
 	bombs_hit += 1
@@ -59,6 +79,11 @@ func _change_hp(_value : int):
 	if hp <= 0:
 		hp = 0
 		_die() 
+		
+func _calculate_accuracy():
+	var _remaining_notes = charter.map.notes.size() - charter.map.notes[charter.note_index].size()
+	for note in charter.map.notes:
+		pass
 
 func _die():
 	print("DE DOOD")

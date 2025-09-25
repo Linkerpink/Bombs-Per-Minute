@@ -2,9 +2,12 @@ extends Resource
 class_name Map
 
 @export var name : String = "Map Name"
+@export var artist : String = "Artist"
+@export var description : String = "Description"
 @export var audio : AudioStream
 @export var album_cover : Texture2D
 @export var bpm : float = 120
+@export var subdivision_size : int = 4
 @export var measures : int
 @export var scroll_speed : float = 10
 @export var notes : Array[Dictionary] = [

@@ -1,0 +1,186 @@
+[gd_resource type="Resource" script_class="Map" load_steps=4 format=3 uid="uid://c8wcfkjrno4dc"]
+
+[ext_resource type="Texture2D" uid="uid://bsxm3d844vfax" path="res://assets/sprites/album covers/inhuman rampage.jpg" id="1_oi87g"]
+[ext_resource type="AudioStream" uid="uid://diqx7jcsaos2x" path="res://assets/audio/through the fire and flames.mp3" id="2_oi87g"]
+[ext_resource type="Script" uid="uid://d27dmnb4fubjl" path="res://scripts/resource scripts/map.gd" id="3_ux5a5"]
+
+[resource]
+script = ExtResource("3_ux5a5")
+name = "Through The Fire And Flames"
+artist = "DragonForce"
+description = "Good luck..."
+audio = ExtResource("2_oi87g")
+album_cover = ExtResource("1_oi87g")
+bpm = 200.0
+subdivision_size = 8
+scroll_speed = 1200.0
+notes = Array[Dictionary]([{
+"beat": 4,
+"end_beat": 0,
+"end_subdivision": 0.0,
+"lane": 2,
+"measure": 0,
+"subdivision": 0,
+"type": "note"
+}, {
+"beat": 4,
+"end_beat": 0,
+"end_subdivision": 0.0,
+"lane": 2,
+"measure": 0,
+"subdivision": 4,
+"type": "note"
+}, {
+"beat": 5,
+"end_beat": 0,
+"end_subdivision": 0.0,
+"lane": 2,
+"measure": 0,
+"subdivision": 0,
+"type": "note"
+}, {
+"beat": 5,
+"end_beat": 0,
+"end_subdivision": 0.0,
+"lane": 2,
+"measure": 0,
+"subdivision": 4,
+"type": "note"
+}, {
+"beat": 6,
+"end_beat": 0,
+"end_subdivision": 0.0,
+"lane": 2,
+"measure": 0,
+"subdivision": 0,
+"type": "note"
+}, {
+"beat": 6,
+"end_beat": 0,
+"end_subdivision": 0.0,
+"lane": 2,
+"measure": 0,
+"subdivision": 4,
+"type": "note"
+}, {
+"beat": 7,
+"end_beat": 0,
+"end_subdivision": 0.0,
+"lane": 2,
+"measure": 0,
+"subdivision": 0,
+"type": "note"
+}, {
+"beat": 7,
+"end_beat": 0,
+"end_subdivision": 0.0,
+"lane": 2,
+"measure": 0,
+"subdivision": 4,
+"type": "note"
+}, {
+"beat": 8,
+"end_beat": 0,
+"end_subdivision": 0.0,
+"lane": 2,
+"measure": 0,
+"subdivision": 0,
+"type": "note"
+}, {
+"beat": 8,
+"end_beat": 0,
+"end_subdivision": 0.0,
+"lane": 2,
+"measure": 0,
+"subdivision": 4,
+"type": "note"
+}, {
+"beat": 9,
+"end_beat": 0,
+"end_subdivision": 0.0,
+"lane": 2,
+"measure": 0,
+"subdivision": 0,
+"type": "note"
+}, {
+"beat": 9,
+"end_beat": 0,
+"end_subdivision": 0.0,
+"lane": 2,
+"measure": 0,
+"subdivision": 4,
+"type": "note"
+}, {
+"beat": 10,
+"end_beat": 0,
+"end_subdivision": 0.0,
+"lane": 2,
+"measure": 0,
+"subdivision": 0,
+"type": "note"
+}, {
+"beat": 10,
+"end_beat": 0,
+"end_subdivision": 0.0,
+"lane": 2,
+"measure": 0,
+"subdivision": 4,
+"type": "note"
+}, {
+"beat": 11,
+"end_beat": 0,
+"end_subdivision": 0.0,
+"lane": 2,
+"measure": 0,
+"subdivision": 0,
+"type": "note"
+}, {
+"beat": 11,
+"end_beat": 0,
+"end_subdivision": 0.0,
+"lane": 2,
+"measure": 0,
+"subdivision": 4,
+"type": "note"
+}, {
+"beat": 12,
+"end_beat": 0,
+"end_subdivision": 0.0,
+"lane": 2,
+"measure": 0,
+"subdivision": 0,
+"type": "note"
+}, {
+"beat": 12,
+"end_beat": 0,
+"end_subdivision": 0.0,
+"lane": 2,
+"measure": 0,
+"subdivision": 4,
+"type": "note"
+}, {
+"beat": -1,
+"end_beat": 0,
+"end_subdivision": 0.0,
+"lane": 2,
+"measure": 0,
+"subdivision": 0,
+"type": "note"
+}, {
+"beat": -1,
+"end_beat": 0,
+"end_subdivision": 0.0,
+"lane": 2,
+"measure": 0,
+"subdivision": 0,
+"type": "note"
+}, {
+"beat": -1,
+"end_beat": 0,
+"end_subdivision": 0.0,
+"lane": 2,
+"measure": 0,
+"subdivision": 0,
+"type": "note"
+}])
+metadata/_custom_type_script = "uid://d27dmnb4fubjl"

@@ -1,5 +1,7 @@
 extends Node
 
+var fullscreen : bool = true
+
 var current_map : Map
 var cm_rank : String = "SS"
 var cm_score : int
@@ -8,6 +10,17 @@ var cm_accuracy : float
 var cm_notes_hit : int
 var cm_bombs_hit : int
 var cm_notes_missed : int
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("fullscreen"):
+		change_fullscreen()
+
+func change_fullscreen():
+	fullscreen = !fullscreen
+	if not fullscreen:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 
 func set_results(_score, _acc : float, _best_combo : int, _notes_hit : int, _bombs_hit : int, _notes_missed : int):
 	cm_score = _score
