@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://kuea8rx0nx8h"]
+
+[ext_resource type="Texture2D" uid="uid://4sc2fo6k0b40" path="res://assets/sprites/white.png" id="1_6kuij"]
+[ext_resource type="Script" uid="uid://ciujlgcpfurec" path="res://scripts/beat_indicator.gd" id="2_rcr4g"]
+
+[node name="Beat Indicator" type="Sprite2D"]
+scale = Vector2(128, 2.5)
+texture = ExtResource("1_6kuij")
+script = ExtResource("2_rcr4g")

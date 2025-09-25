@@ -11,6 +11,7 @@ extends Node2D
 @onready var hit_effect_animation_player : AnimationPlayer = %"Hit Effect Animation Player"
 
 @onready var song_manager : SongManager = %"Song Manager"
+@onready var beat_indicator_scene : PackedScene = preload("res://scenes/beat_indicator.tscn")
 
 enum note_score_states
 {
@@ -107,3 +108,9 @@ func _on_hit_window_area_exited(area: Area2D) -> void:
 		note_score_state = note_score_states.None
 	
 	colliding_note = null
+
+
+func _on_conductor_beat(position: Variant) -> void:
+	pass
+	#var _beat_indicator = beat_indicator_scene.instantiate()
+	#add_child(_beat_indicator)

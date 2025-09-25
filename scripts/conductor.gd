@@ -72,11 +72,17 @@ func play_with_beat_offset(_num):
 	start_timer.wait_time = seconds_per_beat
 	start_timer.start()
 
-func play_from_beat(_beat, _offset):
+func play_from_beat(beat: int, measure: int = 0) -> void:
+	var total_beats = measure * song_measures + beat
+	var start_time = total_beats * seconds_per_beat
+
 	play()
-	seek(_beat * seconds_per_beat)
-	beats_before_start = _offset
-	current_measure = _beat % song_measures
+	seek(start_time)
+
+	song_position = start_time
+	song_position_in_beats = total_beats
+	last_reported_beat = total_beats
+	current_measure = measure
 
 func _on_beat(position: Variant) -> void:
 	#print("beat")
@@ -94,7 +100,7 @@ func _on_start_timer_timeout() -> void:
 		start_timer.wait_time = start_timer.wait_time - (AudioServer.get_time_to_next_mix() + AudioServer.get_output_latency())
 		start_timer.start()
 	else:
-		#play_from_beat(8,0)
+		#play_from_beat(75)
 		play()
 		start_timer.stop()
 	_report_beat()

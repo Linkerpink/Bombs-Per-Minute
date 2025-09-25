@@ -36,7 +36,6 @@ shape = SubResource("RectangleShape2D_43c4j")
 
 [node name="Hit Window Sprite" type="Sprite2D" parent="Normal"]
 unique_name_in_owner = true
-modulate = Color(0.294118, 0.294118, 1, 0.607843)
 self_modulate = Color(0, 0, 1, 1)
 position = Vector2(0, -3.57628e-07)
 scale = Vector2(114, 26)

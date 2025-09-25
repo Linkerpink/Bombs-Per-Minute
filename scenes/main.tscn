@@ -60,5 +60,7 @@ position = Vector2(195, 0)
 hit_key = "hit_3"
 input_value = "K"
 
+[connection signal="beat" from="Conductor" to="Lanes Holder/Lane 0" method="_on_conductor_beat"]
+
 [editable path="Song Manager"]
 [editable path="Song UI"]
