@@ -20,6 +20,8 @@ func _ready() -> void:
 	notes_missed_text.text = "Notes Missed: " + str(globals.cm_notes_missed)
 	
 	album_cover.texture = globals.current_map.album_cover
+	
+	db.send_score()
 
 func _on_main_menu_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
