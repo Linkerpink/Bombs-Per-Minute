@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Rythm Game"
-run/main_scene="uid://bf1ccgabaq0f"
+run/main_scene="uid://be01bwdwhdxkf"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -21,8 +21,8 @@ globals="*res://scripts/globals.gd"
 
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=720
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/stretch/mode="viewport"
 
 [file_customization]

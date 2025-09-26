@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bf1ccgabaq0f"]
+[gd_scene load_steps=7 format=3 uid="uid://bf1ccgabaq0f"]
 
 [ext_resource type="Texture2D" uid="uid://4sc2fo6k0b40" path="res://assets/sprites/white.png" id="1_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://hijd88fh3njf" path="res://scenes/lane.tscn" id="1_o5qli"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://p8msrji7o5tx" path="res://scenes/conductor.tscn" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://bqci8w2w1xy6s" path="res://scenes/charter.tscn" id="1_tefeu"]
 [ext_resource type="PackedScene" uid="uid://bo81qmyxws1fm" path="res://scenes/song_ui.tscn" id="2_jyhfs"]
-[ext_resource type="Resource" uid="uid://c1hggqs4f7tg3" path="res://maps/hakken_in_de_mijnen.tres" id="3_o6xl0"]
 
 [node name="Main" type="Node2D"]
 
@@ -15,7 +14,6 @@ unique_name_in_owner = true
 
 [node name="Charter" parent="." instance=ExtResource("1_tefeu")]
 unique_name_in_owner = true
-map = ExtResource("3_o6xl0")
 
 [node name="Conductor" parent="." instance=ExtResource("1_sugp2")]
 unique_name_in_owner = true
@@ -36,6 +34,7 @@ offset_bottom = 72.0
 max_value = 100.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.5, 1.5)
 
 [node name="Lanes Holder" type="Node2D" parent="." groups=["lanes_holder"]]
 unique_name_in_owner = true

@@ -8,10 +8,10 @@
 size = Vector2(114, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t3yvt"]
-size = Vector2(114, 60)
+size = Vector2(114, 104)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_43c4j"]
-size = Vector2(114, 126)
+size = Vector2(114, 180)
 
 [node name="Note" type="Node2D"]
 script = ExtResource("1_1bnk6")
@@ -27,11 +27,13 @@ shape = SubResource("RectangleShape2D_1bnk6")
 [node name="Good Area" type="Area2D" parent="Normal" groups=["good"]]
 
 [node name="Good Collider" type="CollisionShape2D" parent="Normal/Good Area"]
+position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_t3yvt")
 
 [node name="Okay Area" type="Area2D" parent="Normal" groups=["okay"]]
 
 [node name="Okay Collider" type="CollisionShape2D" parent="Normal/Okay Area"]
+position = Vector2(0, -25)
 shape = SubResource("RectangleShape2D_43c4j")
 
 [node name="Hit Window Sprite" type="Sprite2D" parent="Normal"]

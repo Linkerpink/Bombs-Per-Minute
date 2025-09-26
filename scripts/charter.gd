@@ -11,7 +11,7 @@ var note_index := 0
 var active_notes := []
 
 func _ready() -> void:
-	#map = globals.current_map
+	map = globals.current_map
 	for note in map.notes:
 		note["time"] = conductor.note_to_time(
 			note["measure"],

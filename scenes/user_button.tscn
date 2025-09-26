@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpop75iqnkoex"]
+
+[ext_resource type="Script" uid="uid://5f8gwa2lh71h" path="res://scripts/user_button.gd" id="1_elkee"]
+
+[node name="User Button" type="Button"]
+custom_minimum_size = Vector2(256, 0)
+text = "linkerpink"
+script = ExtResource("1_elkee")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

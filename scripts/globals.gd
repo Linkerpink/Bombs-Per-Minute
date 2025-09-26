@@ -2,6 +2,9 @@ extends Node
 
 var fullscreen : bool = true
 
+var users : Array[String]
+var current_user : String
+
 var current_map : Map
 var cm_rank : String = "SS"
 var cm_score : int
@@ -21,6 +24,10 @@ func change_fullscreen():
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+
+func add_user(_user : String):
+	print("added user")
+	users.append(_user)
 
 func set_results(_score, _acc : float, _best_combo : int, _notes_hit : int, _bombs_hit : int, _notes_missed : int):
 	cm_score = _score
