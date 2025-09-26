@@ -114,7 +114,7 @@ func _handle_combo():
 func _handle_combo_multiplier_text():
 	match combo_multiplier:
 		1:
-			combo_multiplier_text.text = "x[color=blue]" + str(combo_multiplier)
+			combo_multiplier_text.text = "x[color=cyan]" + str(combo_multiplier)
 		2:
 			combo_multiplier_text.text = "x[color=orange]" + str(combo_multiplier)
 		3:

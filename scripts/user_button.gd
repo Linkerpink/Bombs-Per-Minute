@@ -1,6 +1,6 @@
 extends Button
 
-var user : String
+@export var user : String
 var main_menu : MainMenu
 
 func _ready() -> void:

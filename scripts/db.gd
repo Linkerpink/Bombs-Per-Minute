@@ -5,7 +5,7 @@ var api_url = "http://localhost/bombs-per-minute/api.php"
 func send_score():
 	var data = {
 		"user": globals.current_user,
-		"map": globals.current_map,
+		"map": globals.current_map.name,
 		"rank": globals.cm_rank,
 		"accuracy": globals.cm_accuracy,
 		"score": globals.cm_score,
@@ -32,7 +32,6 @@ func _dict_to_query_string(d: Dictionary) -> String:
 		var value = str(d[k]).uri_encode()
 		parts.append("%s=%s" % [key, value])
 	return "&".join(parts)
-
 
 func _on_request_completed(result, response_code, headers, body):
 	if response_code == 200:

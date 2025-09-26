@@ -37,19 +37,19 @@ func _process(delta: float) -> void:
 		match note_score_state:
 			note_score_states.Perfect:
 				_hit_note(300)
-				hit_score_text.text = "Perfect!"
+				hit_score_text.text = "[color=purple]Perfect!"
 			note_score_states.Good:
 				_hit_note(200)
-				hit_score_text.text = "Good!"
+				hit_score_text.text = "[color=green]Good!"
 			note_score_states.Okay:
 				_hit_note(100)
-				hit_score_text.text = "OK."
+				hit_score_text.text = "[color=orange]OK."
 			note_score_states.Bomb:
 				_hit_bomb()
 				hit_score_text.text = "[shake][color=red]KABOOM!"
 			note_score_states.None:
 				_miss_note()
-				hit_score_text.text = "Miss."
+				hit_score_text.text = "[color=red]Miss."
 
 func _hit_note(_amount : int): 
 	print("hit noted")

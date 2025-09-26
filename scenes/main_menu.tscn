@@ -22,6 +22,7 @@ all_maps = Array[ExtResource("2_rtw2f")]([ExtResource("3_rtw2f"), ExtResource("4
 
 [node name="Main Menu UI" type="Control" parent="."]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -114,7 +115,8 @@ text = "Current User: fortnite"
 fit_content = true
 vertical_alignment = 2
 
-[node name="FoldableContainer" type="FoldableContainer" parent="Main Menu UI"]
+[node name="User Selection Window" type="FoldableContainer" parent="Main Menu UI"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(275, 0)
 layout_mode = 0
 offset_right = 275.0
@@ -124,21 +126,21 @@ folded = true
 title = "Select User"
 title_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Main Menu UI/FoldableContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Main Menu UI/User Selection Window"]
 visible = false
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="Enter Username" type="LineEdit" parent="Main Menu UI/FoldableContainer/VBoxContainer"]
+[node name="Enter Username" type="LineEdit" parent="Main Menu UI/User Selection Window/VBoxContainer"]
 layout_mode = 2
 placeholder_text = "Enter Username:"
 
-[node name="Add User Button" type="Button" parent="Main Menu UI/FoldableContainer/VBoxContainer"]
+[node name="Add User Button" type="Button" parent="Main Menu UI/User Selection Window/VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
 text = " "
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Main Menu UI/FoldableContainer/VBoxContainer/Add User Button"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Main Menu UI/User Selection Window/VBoxContainer/Add User Button"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -151,12 +153,12 @@ text = "[wave][color=green]+ Add User"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Main Menu UI/FoldableContainer/VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Main Menu UI/User Selection Window/VBoxContainer"]
 custom_minimum_size = Vector2(0, 525)
 layout_mode = 2
 horizontal_scroll_mode = 0
 
-[node name="User Holder" type="VBoxContainer" parent="Main Menu UI/FoldableContainer/VBoxContainer/ScrollContainer"]
+[node name="User Holder" type="VBoxContainer" parent="Main Menu UI/User Selection Window/VBoxContainer/ScrollContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 
@@ -164,14 +166,14 @@ layout_mode = 2
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
-anchor_left = 0.15300001
-anchor_top = 0.15100001
-anchor_right = 0.84700006
-anchor_bottom = 0.84700006
-offset_left = -0.2844696
-offset_top = 1.2799911
-offset_right = 0.28442383
-offset_bottom = 0.15997314
+anchor_left = 0.135
+anchor_top = 0.134
+anchor_right = 0.86500007
+anchor_bottom = 0.86500007
+offset_left = -0.10925293
+offset_top = 0.27999878
+offset_right = 0.10925293
+offset_bottom = 0.079956055
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -250,7 +252,6 @@ vertical_alignment = 1
 
 [node name="Song Select UI" type="Control" parent="."]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -284,10 +285,13 @@ offset_left = -8.560059
 offset_top = -7.9200006
 grow_horizontal = 0
 grow_vertical = 2
+horizontal_scroll_mode = 0
 
 [node name="Menu Maps" type="VBoxContainer" parent="Song Select UI/ScrollContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
 theme_override_constants/separation = 16
 
 [node name="Album Cover" type="TextureRect" parent="Song Select UI"]
@@ -361,8 +365,8 @@ fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="editing_toggled" from="Main Menu UI/FoldableContainer/VBoxContainer/Enter Username" to="." method="_on_enter_username_editing_toggled"]
-[connection signal="text_changed" from="Main Menu UI/FoldableContainer/VBoxContainer/Enter Username" to="." method="_on_enter_username_text_changed"]
-[connection signal="pressed" from="Main Menu UI/FoldableContainer/VBoxContainer/Add User Button" to="." method="_on_add_user_button_pressed"]
+[connection signal="editing_toggled" from="Main Menu UI/User Selection Window/VBoxContainer/Enter Username" to="." method="_on_enter_username_editing_toggled"]
+[connection signal="text_changed" from="Main Menu UI/User Selection Window/VBoxContainer/Enter Username" to="." method="_on_enter_username_text_changed"]
+[connection signal="pressed" from="Main Menu UI/User Selection Window/VBoxContainer/Add User Button" to="." method="_on_add_user_button_pressed"]
 [connection signal="pressed" from="Main Menu UI/No User Selected/Close Button" to="." method="_on_close_button_pressed"]
 [connection signal="pressed" from="Song Select UI/VBoxContainer/Start Song Button" to="." method="_on_start_song_button_pressed"]

@@ -17,10 +17,13 @@ var selected_map : Map
 @onready var no_user_selected_window : Control = %"No User Selected"
 var new_username : String = ""
 
+@onready var user_selection_window : FoldableContainer = %"User Selection Window"
 @onready var user_holder : VBoxContainer = %"User Holder"
 @onready var user_button : PackedScene = preload("res://scenes/user_button.tscn")
 @onready var current_user_text : RichTextLabel = %"Current User Text"
 var can_switch_menu : bool = false
+
+var typing : bool = false
 
 enum MenuStates
 {
@@ -42,7 +45,7 @@ func _process(delta: float) -> void:
 	
 	match menu_state:
 		MenuStates.Main:
-			if Input.is_action_just_pressed("menu_select"):
+			if Input.is_action_just_pressed("menu_select") and not typing:
 				if can_switch_menu:
 					set_menu_state(MenuStates.SongSelect)
 				else:
@@ -53,6 +56,7 @@ func _process(delta: float) -> void:
 				set_menu_state(MenuStates.Main)
 
 func set_menu_state(_state : MenuStates):
+	user_selection_window.fold()
 	menu_state = _state
 	
 	match menu_state:
@@ -98,4 +102,4 @@ func _on_close_button_pressed() -> void:
 	no_user_selected_window.hide()
 
 func _on_enter_username_editing_toggled(toggled_on: bool) -> void:
-	pass # Replace with function body.
+	typing = toggled_on
