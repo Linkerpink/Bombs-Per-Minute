@@ -11,7 +11,7 @@ var messages : Array[String] = [
 	"💀",
 	"Ik beklim een berg van mollen op de straat, dat kan ik het best nou beschrijf ik/mij mezelf als Tharoa, die kan ik heel goed op de saksefoon. je zal weten dat ik een pistol met tandpasta eet",
 	"Flying porche reference?!?!",
-	"Ff hakken in de mijnen"
+	"Lekker hakken in de mijnen"
 ]
 
 var rnd

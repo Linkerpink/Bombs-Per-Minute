@@ -19,12 +19,13 @@ config/icon="res://icon.svg"
 
 globals="*res://scripts/globals.gd"
 db="*res://scripts/db.gd"
+settings="*res://scenes/settings_menu.tscn"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=2
+window/size/mode=3
 window/subwindows/embed_subwindows=false
 window/stretch/mode="viewport"
 
