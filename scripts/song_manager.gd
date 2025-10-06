@@ -42,9 +42,6 @@ func _process(delta: float) -> void:
 		
 	if exit_timer >= 0.5:
 		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
-		
-	if Input.is_action_just_pressed("restart"):
-		get_tree().reload_current_scene()
 
 func hit_note(_amount : int):
 	notes_hit += 1

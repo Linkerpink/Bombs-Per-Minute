@@ -13,6 +13,7 @@ var selected_map : Map
 @export var all_maps : Array[Map]
 
 @onready var main_scene : PackedScene = preload("res://scenes/main.tscn")
+@onready var map_editor_scene : PackedScene = preload("res://scenes/map_editor.tscn")
 
 @onready var no_user_selected_window : Control = %"No User Selected"
 var new_username : String = ""
@@ -42,18 +43,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if globals.users.size() > 0:
 		can_switch_menu = true
-	
-	match menu_state:
-		MenuStates.Main:
-			if Input.is_action_just_pressed("menu_select") and not typing:
-				if can_switch_menu:
-					set_menu_state(MenuStates.SongSelect)
-				else:
-					no_user_selected_window.show()
-			
-		MenuStates.SongSelect:
-			if Input.is_action_just_pressed("menu_back"):
-				set_menu_state(MenuStates.Main)
 
 func set_menu_state(_state : MenuStates):
 	user_selection_window.fold()
@@ -94,12 +83,27 @@ func _on_enter_username_text_changed(new_text: String) -> void:
 
 func _on_add_user_button_pressed() -> void:
 	globals.add_user(new_username)
-	var _ub = user_button.instantiate()
-	_ub._change_user_button_text(new_username)
-	user_holder.add_child(_ub)
+	for i in globals.users:
+		var _ub = user_button.instantiate()
+		_ub._change_user_button_text(globals.users[globals.users.find(i)])
+		user_holder.add_child(_ub)
 
 func _on_close_button_pressed() -> void:
 	no_user_selected_window.hide()
 
 func _on_enter_username_editing_toggled(toggled_on: bool) -> void:
 	typing = toggled_on
+
+func _on_start_button_pressed() -> void:
+	if can_switch_menu and menu_state == MenuStates.Main:
+		set_menu_state(MenuStates.SongSelect)
+	else:
+		no_user_selected_window.show()
+
+func _on_back_button_pressed() -> void:
+	if menu_state == MenuStates.SongSelect:
+		set_menu_state(MenuStates.Main)
+
+
+func _on_map_editor_button_pressed() -> void:
+	get_tree().change_scene_to_packed(map_editor_scene)

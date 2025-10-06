@@ -17,6 +17,9 @@ var cm_notes_missed : int
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("fullscreen"):
 		change_fullscreen()
+		
+	if Input.is_action_just_pressed("restart"):
+		get_tree().reload_current_scene()
 
 func change_fullscreen():
 	fullscreen = !fullscreen

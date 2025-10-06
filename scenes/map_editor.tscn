@@ -1,0 +1,210 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6tqu5scwaqy5"]
+
+[ext_resource type="Script" uid="uid://ccc7yl50r2vg" path="res://scripts/random_message.gd" id="3_rdfmk"]
+[ext_resource type="Texture2D" uid="uid://4sc2fo6k0b40" path="res://assets/sprites/white.png" id="4_u4ibt"]
+[ext_resource type="PackedScene" uid="uid://hijd88fh3njf" path="res://scenes/lane.tscn" id="6_gxr6b"]
+
+[node name="Map Editor" type="Node2D"]
+
+[node name="Editor" type="Node2D" parent="."]
+
+[node name="Background" type="Sprite2D" parent="Editor"]
+modulate = Color(0, 0, 0, 1)
+scale = Vector2(1280, 720)
+texture = ExtResource("4_u4ibt")
+
+[node name="Song UI" type="Control" parent="Editor"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1280, 720)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -640.0
+offset_top = -360.0
+offset_right = 640.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Editor/Song UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 128
+theme_override_constants/margin_top = 128
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 88
+
+[node name="Debug UI" type="VBoxContainer" parent="Editor/Song UI/MarginContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Song Position In Beats Text" type="RichTextLabel" parent="Editor/Song UI/MarginContainer/Debug UI"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+bbcode_enabled = true
+text = "Song position in beats: "
+vertical_alignment = 1
+
+[node name="Current Measure Text" type="RichTextLabel" parent="Editor/Song UI/MarginContainer/Debug UI"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+bbcode_enabled = true
+text = "Current measure: "
+vertical_alignment = 1
+
+[node name="Exit Progress Bar" type="TextureProgressBar" parent="Editor/Song UI"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 32.0
+offset_right = 75.0
+offset_bottom = 72.0
+fill_mode = 5
+nine_patch_stretch = true
+texture_progress = ExtResource("4_u4ibt")
+
+[node name="Camera2D" type="Camera2D" parent="Editor"]
+zoom = Vector2(1.5, 1.5)
+
+[node name="Lanes Holder" type="Node2D" parent="Editor" groups=["lanes_holder"]]
+unique_name_in_owner = true
+
+[node name="Lane 0" parent="Editor/Lanes Holder" instance=ExtResource("6_gxr6b")]
+position = Vector2(-195, 0)
+script = null
+
+[node name="Lane 1" parent="Editor/Lanes Holder" instance=ExtResource("6_gxr6b")]
+position = Vector2(-65, 0)
+script = null
+
+[node name="Lane 2" parent="Editor/Lanes Holder" instance=ExtResource("6_gxr6b")]
+position = Vector2(65, 0)
+script = null
+
+[node name="Lane 3" parent="Editor/Lanes Holder" instance=ExtResource("6_gxr6b")]
+position = Vector2(195, 0)
+script = null
+
+[node name="Map Editor UI" type="Control" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Start Menu" type="Control" parent="Map Editor UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Map Editor UI/Start Menu"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_u4ibt")
+
+[node name="Map Editor Text" type="RichTextLabel" parent="Map Editor UI/Start Menu"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -517.0
+offset_right = 517.0
+offset_bottom = 144.0
+grow_horizontal = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 72
+bbcode_enabled = true
+text = "Map Editor"
+fit_content = true
+horizontal_alignment = 1
+script = ExtResource("3_rdfmk")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Map Editor UI/Start Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 32
+
+[node name="Create Map Button" type="Button" parent="Map Editor UI/Start Menu/HBoxContainer"]
+custom_minimum_size = Vector2(256, 144)
+layout_mode = 2
+
+[node name="Create Text" type="RichTextLabel" parent="Map Editor UI/Start Menu/HBoxContainer/Create Map Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "Create Map"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Load Map Button" type="Button" parent="Map Editor UI/Start Menu/HBoxContainer"]
+custom_minimum_size = Vector2(256, 144)
+layout_mode = 2
+
+[node name="Load Text" type="RichTextLabel" parent="Map Editor UI/Start Menu/HBoxContainer/Load Map Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "Load Map"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Create Map" type="FileDialog" parent="Map Editor UI"]
+canvas_item_default_texture_filter = 0
+oversampling_override = 1.0
+title = "Create a map."
+initial_position = 1
+size = Vector2i(1280, 720)
+access = 2
+
+[node name="Load Map" type="FileDialog" parent="Map Editor UI"]
+canvas_item_default_texture_filter = 0
+oversampling_override = 1.0
+title = "Load a map"
+initial_position = 1
+size = Vector2i(1280, 720)
+file_mode = 0
+access = 2
+
+[connection signal="meta_clicked" from="Map Editor UI/Start Menu/Map Editor Text" to="Map Editor UI/Start Menu/Map Editor Text" method="_on_meta_clicked"]

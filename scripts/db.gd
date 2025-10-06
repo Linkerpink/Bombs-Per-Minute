@@ -18,20 +18,12 @@ func send_score():
 	var http := HTTPRequest.new()
 	add_child(http)
 
-	var body    = _dict_to_query_string(data)
-	var headers = ["Content-Type: application/x-www-form-urlencoded"]
+	var body = JSON.stringify(data)
+	var headers = ["Content-Type: application/json"]
 
 	http.request(api_url, headers, HTTPClient.METHOD_POST, body)
 	http.request_completed.connect(_on_request_completed)
 
-
-func _dict_to_query_string(d: Dictionary) -> String:
-	var parts: Array[String] = []
-	for k in d.keys():
-		var key   = str(k).uri_encode()
-		var value = str(d[k]).uri_encode()
-		parts.append("%s=%s" % [key, value])
-	return "&".join(parts)
 
 func _on_request_completed(result, response_code, headers, body):
 	if response_code == 200:
