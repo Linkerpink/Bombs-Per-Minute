@@ -30,6 +30,8 @@ var new_username : String = ""
 @onready var user_button : PackedScene = preload("res://scenes/user_button.tscn")
 @onready var current_user_text : RichTextLabel = %"Current User Text"
 
+@onready var settings = %Settings
+
 var typing : bool = false
 
 enum MenuStates

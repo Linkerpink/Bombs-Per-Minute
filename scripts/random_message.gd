@@ -1,9 +1,9 @@
 extends RichTextLabel
 
 var messages : Array[String] = [
+	"If you like the game, consider [color=green][wave amp=25][url]supporting the developer[/url]",
 	"Art by [color=#ABFE02][wave amp=25]SupercatLuigi player",
 	"Made proudly with [color=#4D9FDC][wave amp=25]Godot",
-	"If you like the game, consider [color=green][wave amp=25][url]supporting the developer[/url]",
 	"[shake rate=66 level=17][color=red]Reason 7",
 	"I lost 15 bucks because of this game (they gambled it away)",
 	"Fun fact: the first few maps were made with a [shake rate=66 level=17][color=red]text editor",
@@ -23,7 +23,7 @@ func _on_meta_clicked(meta: Variant) -> void:
 	OS.shell_open("https://bombs-per-minute-game.vercel.app/support")
 
 func _choose_random_message():
-	var _rnd = randi_range(0,messages.size() - 1)
+	var _rnd = 0 #randi_range(0,messages.size() - 1)
 	
 	if rnd != _rnd:
 		rnd = _rnd

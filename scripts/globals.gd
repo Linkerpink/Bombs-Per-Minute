@@ -13,9 +13,6 @@ var cm_bombs_hit : int
 var cm_notes_missed : int
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("fullscreen"):
-		settings.change_fullscreen()
-		
 	if Input.is_action_just_pressed("restart"):
 		get_tree().reload_current_scene()
 
