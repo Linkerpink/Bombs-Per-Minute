@@ -226,6 +226,24 @@ text = "[wave][color=green]+ Add User"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Remove Current User" type="Button" parent="Main Menu UI/User Selection Window/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+text = " "
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Main Menu UI/User Selection Window/VBoxContainer/Remove Current User"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+bbcode_enabled = true
+text = "[wave][color=red]- Remove Current User"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="ScrollContainer" type="ScrollContainer" parent="Main Menu UI/User Selection Window/VBoxContainer"]
 custom_minimum_size = Vector2(0, 525)
 layout_mode = 2
@@ -371,6 +389,9 @@ unique_name_in_owner = true
 layout_mode = 1
 mouse_filter = 2
 
+[node name="Settings Menu" parent="Main Menu UI/Settings" index="0"]
+visible = false
+
 [node name="Song Select UI" type="Control" parent="."]
 unique_name_in_owner = true
 visible = false
@@ -509,3 +530,5 @@ vertical_alignment = 1
 [connection signal="pressed" from="Main Menu UI/Settings Button" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="Song Select UI/VBoxContainer/Start Song Button" to="." method="_on_start_song_button_pressed"]
 [connection signal="pressed" from="Song Select UI/Back Button" to="." method="_on_back_button_pressed"]
+
+[editable path="Main Menu UI/Settings"]

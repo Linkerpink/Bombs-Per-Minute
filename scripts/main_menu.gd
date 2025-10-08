@@ -47,6 +47,7 @@ func _ready() -> void:
 	_load_maps()
 	_choose_random_map()
 	set_current_user_text()
+	_update_users_window()
 
 func set_menu_state(_state : MenuStates):
 	user_selection_window.fold()
@@ -87,6 +88,12 @@ func _on_enter_username_text_changed(new_text: String) -> void:
 
 func _on_add_user_button_pressed() -> void:
 	globals.add_user(new_username)
+	_update_users_window()
+	
+func _update_users_window():
+	for i in user_holder.get_children():
+		i.queue_free()
+	
 	for i in globals.users:
 		var _ub = user_button.instantiate()
 		_ub._change_user_button_text(globals.users[globals.users.find(i)])

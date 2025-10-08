@@ -23,7 +23,7 @@ func _on_meta_clicked(meta: Variant) -> void:
 	OS.shell_open("https://bombs-per-minute-game.vercel.app/support")
 
 func _choose_random_message():
-	var _rnd = 0 #randi_range(0,messages.size() - 1)
+	var _rnd = randi_range(0,messages.size() - 1)
 	
 	if rnd != _rnd:
 		rnd = _rnd
