@@ -74,8 +74,7 @@ func _change_hp(_value : int):
 		hp = 100
 		
 	if hp <= 0:
-		hp = 0
-		_die() 
+		_die()
 		
 func _calculate_accuracy():
 	var _remaining_notes = charter.map.notes.size() - charter.map.notes[charter.note_index].size()
@@ -83,7 +82,8 @@ func _calculate_accuracy():
 		pass
 
 func _die():
-	print("DE DOOD")
+	globals.set_results(score, accuracy, best_combo, notes_hit, bombs_hit, notes_missed, false)
+	get_tree().change_scene_to_file("res://scenes/result_screen.tscn")
 
 func _handle_combo():
 	combo += 1

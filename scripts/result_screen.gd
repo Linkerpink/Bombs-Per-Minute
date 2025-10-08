@@ -1,14 +1,15 @@
 extends Control
 
-@onready var rank_text : RichTextLabel = $"VBoxContainer2/Rank Text"
-@onready var accuracy_text : RichTextLabel = $"VBoxContainer2/Accuracy Text"
-@onready var score_text : RichTextLabel = $"VBoxContainer2/Score Text"
-@onready var best_combo_text : RichTextLabel = $"VBoxContainer2/Best Combo Text"
-@onready var notes_hit_text : RichTextLabel = $"VBoxContainer2/Notes Hit Text"
-@onready var bombs_hit_text : RichTextLabel = $"VBoxContainer2/Bombs Hit Text"
-@onready var notes_missed_text : RichTextLabel = $"VBoxContainer2/Notes Missed Text"
+@onready var rank_text : RichTextLabel = $"VBoxContainer3/VBoxContainer2/Rank Text"
+@onready var accuracy_text : RichTextLabel = $"VBoxContainer3/VBoxContainer2/Accuracy Text"
+@onready var score_text : RichTextLabel = $"VBoxContainer3/VBoxContainer2/Score Text"
+@onready var best_combo_text : RichTextLabel = $"VBoxContainer3/VBoxContainer2/Best Combo Text"
+@onready var notes_hit_text : RichTextLabel = $"VBoxContainer3/VBoxContainer2/Notes Hit Text"
+@onready var bombs_hit_text : RichTextLabel = $"VBoxContainer3/VBoxContainer2/Bombs Hit Text"
+@onready var notes_missed_text : RichTextLabel = $"VBoxContainer3/VBoxContainer2/Notes Missed Text"
 
 @onready var album_cover : TextureRect = %"Album Cover"
+@onready var result_text : RichTextLabel = $"VBoxContainer3/Result Text"
 
 func _ready() -> void:
 	rank_text.text = "Rank: " + str(globals.cm_rank)
@@ -21,7 +22,11 @@ func _ready() -> void:
 	
 	album_cover.texture = globals.current_map.album_cover
 	
-	db.send_score()
+	if globals.cm_passed:
+		result_text.text = "[color=green]You passed"
+		db.send_score()
+	else:
+		result_text.text = "[color=red]You failed"
 
 func _on_main_menu_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")

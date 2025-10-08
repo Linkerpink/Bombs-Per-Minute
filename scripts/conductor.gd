@@ -30,7 +30,7 @@ signal measure(position)
 #endregion
 
 func _ready() -> void:
-	globals.set_results(0,0,0,0,0,0)
+	globals.set_results(0, 0, 0, 0, 0, 0, false)
 	song_bpm = charter.map.bpm
 	song_measures = charter.map.measures
 	song_scroll_speed = charter.map.scroll_speed
@@ -50,7 +50,7 @@ func _physics_process(delta: float) -> void:
 		_update_ui()
 	if not playing and song_position_in_beats > 1:
 		var sm = song_manager
-		globals.set_results(sm.score, sm.accuracy, sm.best_combo, sm.notes_hit, sm.bombs_hit, sm.notes_missed)
+		globals.set_results(sm.score, sm.accuracy, sm.best_combo, sm.notes_hit, sm.bombs_hit, sm.notes_missed, true)
 		get_tree().change_scene_to_file("res://scenes/result_screen.tscn")
 
 func _report_beat():

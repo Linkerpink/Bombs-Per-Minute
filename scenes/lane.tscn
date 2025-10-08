@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://hijd88fh3njf"]
+[gd_scene load_steps=11 format=3 uid="uid://hijd88fh3njf"]
 
 [ext_resource type="Script" uid="uid://csasol5lvaneu" path="res://scripts/lane.gd" id="1_6c0se"]
 [ext_resource type="Texture2D" uid="uid://4sc2fo6k0b40" path="res://assets/sprites/white.png" id="1_i20lb"]
@@ -152,6 +152,9 @@ _data = {
 &"hit_effect": SubResource("Animation_t6mhj")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6c0se"]
+size = Vector2(128, 80)
+
 [node name="Lane" type="Node2D"]
 script = ExtResource("1_6c0se")
 
@@ -234,5 +237,13 @@ position = Vector2(0, 244)
 scale = Vector2(114, 6)
 texture = ExtResource("1_i20lb")
 
+[node name="Miss Trigger" type="Area2D" parent="."]
+position = Vector2(0, 360)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Miss Trigger"]
+position = Vector2(0, 40)
+shape = SubResource("RectangleShape2D_6c0se")
+
 [connection signal="area_entered" from="Hit Window" to="." method="_on_hit_window_area_entered"]
 [connection signal="area_exited" from="Hit Window" to="." method="_on_hit_window_area_exited"]
+[connection signal="area_exited" from="Miss Trigger" to="." method="_on_miss_trigger_area_exited"]

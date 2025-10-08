@@ -117,16 +117,32 @@ text = "[color=yellow][font_size={64]*[/font_size][/color] 5/5"
 fit_content = true
 vertical_alignment = 1
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+[node name="VBoxContainer3" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
+anchors_preset = 15
 anchor_right = 1.0
-offset_left = -712.0
-offset_bottom = 360.0
-grow_horizontal = 0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
-[node name="Rank Text" type="RichTextLabel" parent="VBoxContainer2"]
+[node name="Result Text" type="RichTextLabel" parent="VBoxContainer3"]
+custom_minimum_size = Vector2(480, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 128
+bbcode_enabled = true
+text = "skill issue"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer3"]
+layout_mode = 2
+mouse_filter = 2
+alignment = 1
+
+[node name="Rank Text" type="RichTextLabel" parent="VBoxContainer3/VBoxContainer2"]
 custom_minimum_size = Vector2(480, 0)
 layout_mode = 2
 theme_override_constants/outline_size = 8
@@ -134,9 +150,10 @@ theme_override_font_sizes/normal_font_size = 128
 bbcode_enabled = true
 text = "Rank: S"
 fit_content = true
+horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Accuracy Text" type="RichTextLabel" parent="VBoxContainer2"]
+[node name="Accuracy Text" type="RichTextLabel" parent="VBoxContainer3/VBoxContainer2"]
 custom_minimum_size = Vector2(480, 0)
 layout_mode = 2
 theme_override_constants/outline_size = 8
@@ -144,9 +161,10 @@ theme_override_font_sizes/normal_font_size = 28
 bbcode_enabled = true
 text = "Accuracy: 92%"
 fit_content = true
+horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Score Text" type="RichTextLabel" parent="VBoxContainer2"]
+[node name="Score Text" type="RichTextLabel" parent="VBoxContainer3/VBoxContainer2"]
 custom_minimum_size = Vector2(480, 0)
 layout_mode = 2
 theme_override_constants/outline_size = 8
@@ -154,9 +172,10 @@ theme_override_font_sizes/normal_font_size = 28
 bbcode_enabled = true
 text = "Score: 324897632423984"
 fit_content = true
+horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Best Combo Text" type="RichTextLabel" parent="VBoxContainer2"]
+[node name="Best Combo Text" type="RichTextLabel" parent="VBoxContainer3/VBoxContainer2"]
 custom_minimum_size = Vector2(480, 0)
 layout_mode = 2
 theme_override_constants/outline_size = 8
@@ -164,9 +183,10 @@ theme_override_font_sizes/normal_font_size = 28
 bbcode_enabled = true
 text = "Best Combo: 1200"
 fit_content = true
+horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Notes Hit Text" type="RichTextLabel" parent="VBoxContainer2"]
+[node name="Notes Hit Text" type="RichTextLabel" parent="VBoxContainer3/VBoxContainer2"]
 custom_minimum_size = Vector2(480, 0)
 layout_mode = 2
 theme_override_constants/outline_size = 8
@@ -174,9 +194,10 @@ theme_override_font_sizes/normal_font_size = 28
 bbcode_enabled = true
 text = "Notes Hit: 3248"
 fit_content = true
+horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Bombs Hit Text" type="RichTextLabel" parent="VBoxContainer2"]
+[node name="Bombs Hit Text" type="RichTextLabel" parent="VBoxContainer3/VBoxContainer2"]
 custom_minimum_size = Vector2(480, 0)
 layout_mode = 2
 theme_override_constants/outline_size = 8
@@ -184,9 +205,10 @@ theme_override_font_sizes/normal_font_size = 28
 bbcode_enabled = true
 text = "Bombs Hit: 29"
 fit_content = true
+horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Notes Missed Text" type="RichTextLabel" parent="VBoxContainer2"]
+[node name="Notes Missed Text" type="RichTextLabel" parent="VBoxContainer3/VBoxContainer2"]
 custom_minimum_size = Vector2(480, 0)
 layout_mode = 2
 theme_override_constants/outline_size = 8
@@ -194,6 +216,7 @@ theme_override_font_sizes/normal_font_size = 28
 bbcode_enabled = true
 text = "Notes Missed: 57"
 fit_content = true
+horizontal_alignment = 1
 vertical_alignment = 1
 
 [connection signal="pressed" from="Main Menu Button" to="." method="_on_main_menu_button_pressed"]

@@ -109,8 +109,17 @@ func _on_hit_window_area_exited(area: Area2D) -> void:
 	
 	colliding_note = null
 
-
 func _on_conductor_beat(position: Variant) -> void:
 	pass
 	#var _beat_indicator = beat_indicator_scene.instantiate()
 	#add_child(_beat_indicator)
+
+func _on_miss_trigger_area_exited(area: Area2D) -> void:
+	if area.is_in_group("okay"):
+		area.queue_free()
+		note_score_state = note_score_states.None
+		hit_score_text.text = "[color=red]Miss."
+		_miss_note()
+		
+	if area.is_in_group("bomb"):
+		area.queue_free()
