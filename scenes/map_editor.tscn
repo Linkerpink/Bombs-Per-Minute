@@ -7,92 +7,8 @@
 [node name="Map Editor" type="Node2D"]
 script = ExtResource("1_8qdu6")
 
-[node name="Editor" type="Node2D" parent="."]
-
-[node name="Background" type="Sprite2D" parent="Editor"]
-modulate = Color(0, 0, 0, 1)
-scale = Vector2(1280, 720)
-texture = ExtResource("4_u4ibt")
-
-[node name="Song UI" type="Control" parent="Editor"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(1280, 720)
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -640.0
-offset_top = -360.0
-offset_right = 640.0
-offset_bottom = 360.0
-grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_use_anchors_ = true
-
-[node name="MarginContainer" type="MarginContainer" parent="Editor/Song UI"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 128
-theme_override_constants/margin_top = 128
-theme_override_constants/margin_right = 64
-theme_override_constants/margin_bottom = 88
-
-[node name="Debug UI" type="VBoxContainer" parent="Editor/Song UI/MarginContainer"]
-layout_mode = 2
-alignment = 2
-
-[node name="Song Position In Beats Text" type="RichTextLabel" parent="Editor/Song UI/MarginContainer/Debug UI"]
-custom_minimum_size = Vector2(0, 32)
-layout_mode = 2
-bbcode_enabled = true
-text = "Song position in beats: "
-vertical_alignment = 1
-
-[node name="Current Measure Text" type="RichTextLabel" parent="Editor/Song UI/MarginContainer/Debug UI"]
-custom_minimum_size = Vector2(0, 32)
-layout_mode = 2
-bbcode_enabled = true
-text = "Current measure: "
-vertical_alignment = 1
-
-[node name="Exit Progress Bar" type="TextureProgressBar" parent="Editor/Song UI"]
-layout_mode = 0
-offset_left = 35.0
-offset_top = 32.0
-offset_right = 75.0
-offset_bottom = 72.0
-fill_mode = 5
-nine_patch_stretch = true
-texture_progress = ExtResource("4_u4ibt")
-
-[node name="Camera2D" type="Camera2D" parent="Editor"]
-zoom = Vector2(1.5, 1.5)
-
-[node name="Lanes Holder" type="Node2D" parent="Editor" groups=["lanes_holder"]]
-unique_name_in_owner = true
-
-[node name="Lane 0" parent="Editor/Lanes Holder" instance=ExtResource("6_gxr6b")]
-position = Vector2(-195, 0)
-script = null
-
-[node name="Lane 1" parent="Editor/Lanes Holder" instance=ExtResource("6_gxr6b")]
-position = Vector2(-65, 0)
-script = null
-
-[node name="Lane 2" parent="Editor/Lanes Holder" instance=ExtResource("6_gxr6b")]
-position = Vector2(65, 0)
-script = null
-
-[node name="Lane 3" parent="Editor/Lanes Holder" instance=ExtResource("6_gxr6b")]
-position = Vector2(195, 0)
-script = null
-
 [node name="Map Editor UI" type="Control" parent="."]
-custom_minimum_size = Vector2(1920, 1080)
+custom_minimum_size = Vector2(1280, 720)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -101,6 +17,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Start Menu" type="Control" parent="Map Editor UI"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -190,13 +107,502 @@ fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Create Map" type="FileDialog" parent="Map Editor UI"]
+[node name="Create Map Menu" type="Control" parent="Map Editor UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Map Editor UI/Create Map Menu"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_u4ibt")
+
+[node name="Map Editor Text" type="RichTextLabel" parent="Map Editor UI/Create Map Menu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -517.0
+offset_right = 517.0
+offset_bottom = 99.0
+grow_horizontal = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 72
+bbcode_enabled = true
+text = "Create Map"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Map Editor UI/Create Map Menu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.149
+anchor_right = 1.0
+anchor_bottom = 0.9110001
+offset_top = -0.2800064
+offset_bottom = 0.079956055
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Map Editor UI/Create Map Menu/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_constants/separation = 32
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="Name" type="HBoxContainer" parent="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer/HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="Subtext" type="RichTextLabel" parent="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer/HBoxContainer/Name"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "Name"
+fit_content = true
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Enter Map Name" type="LineEdit" parent="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer/HBoxContainer/Name"]
+custom_minimum_size = Vector2(172, 0)
+layout_mode = 2
+placeholder_text = "Enter map name"
+expand_to_text_length = true
+
+[node name="Artist" type="HBoxContainer" parent="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer/HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="Subtext" type="RichTextLabel" parent="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer/HBoxContainer/Artist"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "Artist"
+fit_content = true
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Enter Artist Name" type="LineEdit" parent="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer/HBoxContainer/Artist"]
+custom_minimum_size = Vector2(172, 0)
+layout_mode = 2
+placeholder_text = "Enter artist name"
+expand_to_text_length = true
+
+[node name="Mapper" type="HBoxContainer" parent="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer/HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="Subtext" type="RichTextLabel" parent="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer/HBoxContainer/Mapper"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "Mapper"
+fit_content = true
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Enter Mapper Name" type="LineEdit" parent="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer/HBoxContainer/Mapper"]
+custom_minimum_size = Vector2(172, 0)
+layout_mode = 2
+placeholder_text = "Enter your name"
+expand_to_text_length = true
+
+[node name="Description" type="HBoxContainer" parent="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer/HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="Subtext" type="RichTextLabel" parent="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer/HBoxContainer/Description"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "Description"
+fit_content = true
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Enter Description" type="LineEdit" parent="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer/HBoxContainer/Description"]
+custom_minimum_size = Vector2(172, 0)
+layout_mode = 2
+placeholder_text = "Enter description"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="Subtext" type="RichTextLabel" parent="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(172, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "Album Cover"
+fit_content = true
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Album Cover" type="TextureRect" parent="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(125, 125)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Choose Cover Button" type="Button" parent="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(256, 64)
+layout_mode = 2
+
+[node name="Start Text" type="RichTextLabel" parent="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer/HBoxContainer3/Choose Cover Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "Choose Cover"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Choose Cover" type="FileDialog" parent="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer/HBoxContainer3"]
 unique_name_in_owner = true
 canvas_item_default_texture_filter = 0
 oversampling_override = 1.0
-title = "Create a map."
+title = "Choose Album Cover"
 initial_position = 1
 size = Vector2i(1280, 720)
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.png", "*.jpg", "*.jpeg")
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="Subtext" type="RichTextLabel" parent="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(172, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "Audio File"
+fit_content = true
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Audio Name Text" type="RichTextLabel" parent="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer/HBoxContainer4"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "None"
+fit_content = true
+vertical_alignment = 1
+
+[node name="Choose Audio Button" type="Button" parent="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(256, 64)
+layout_mode = 2
+
+[node name="Start Text" type="RichTextLabel" parent="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer/HBoxContainer4/Choose Audio Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "Choose Audio"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Choose Audio" type="FileDialog" parent="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer/HBoxContainer4/Choose Audio Button"]
+unique_name_in_owner = true
+canvas_item_default_texture_filter = 0
+oversampling_override = 1.0
+title = "Choose Audio"
+initial_position = 1
+size = Vector2i(1280, 720)
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.wav", "*.mp3", "*.ogg")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="BPM" type="HBoxContainer" parent="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer/HBoxContainer2"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="Subtext" type="RichTextLabel" parent="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer/HBoxContainer2/BPM"]
+custom_minimum_size = Vector2(172, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "BPM (Beats Per Minute)"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Enter BPM" type="SpinBox" parent="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer/HBoxContainer2/BPM"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+max_value = 1000.0
+value = 120.0
+allow_greater = true
+suffix = "bpm"
+
+[node name="BPM2" type="HBoxContainer" parent="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer/HBoxContainer2"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="Subtext" type="RichTextLabel" parent="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer/HBoxContainer2/BPM2"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "Time Signature"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer/HBoxContainer2/BPM2"]
+layout_mode = 2
+
+[node name="Enter Measure" type="SpinBox" parent="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer/HBoxContainer2/BPM2/HBoxContainer"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+max_value = 1000.0
+value = 4.0
+allow_greater = true
+
+[node name="Map Editor Text" type="RichTextLabel" parent="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer/HBoxContainer2/BPM2/HBoxContainer"]
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 12
+bbcode_enabled = true
+text = "/"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enter Beat" type="SpinBox" parent="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer/HBoxContainer2/BPM2/HBoxContainer"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+max_value = 1000.0
+value = 4.0
+allow_greater = true
+
+[node name="Subdivision Size" type="HBoxContainer" parent="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer/HBoxContainer2"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="Subtext" type="RichTextLabel" parent="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer/HBoxContainer2/Subdivision Size"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "Subdivision Size"
+fit_content = true
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Enter Subdivision" type="SpinBox" parent="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer/HBoxContainer2/Subdivision Size"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+max_value = 1000.0
+value = 4.0
+allow_greater = true
+
+[node name="Scroll Speed" type="HBoxContainer" parent="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer/HBoxContainer2"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="Subtext" type="RichTextLabel" parent="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer/HBoxContainer2/Scroll Speed"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "Scroll Speed"
+fit_content = true
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Enter Scroll Speed" type="SpinBox" parent="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer/HBoxContainer2/Scroll Speed"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+max_value = 10000.0
+value = 500.0
+allow_greater = true
+
+[node name="Folder Path Setting" type="HBoxContainer" parent="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="Subtext" type="RichTextLabel" parent="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer/Folder Path Setting"]
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "Folder Path"
+fit_content = true
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Map Path Text" type="RichTextLabel" parent="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer/Folder Path Setting"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "path"
+autowrap_mode = 1
+vertical_alignment = 1
+
+[node name="Change Path Button" type="Button" parent="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer/Folder Path Setting"]
+custom_minimum_size = Vector2(256, 64)
+layout_mode = 2
+
+[node name="Start Text" type="RichTextLabel" parent="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer/Folder Path Setting/Change Path Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "Change Path"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Set Map Folder" type="FileDialog" parent="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer/Folder Path Setting"]
+unique_name_in_owner = true
+canvas_item_default_texture_filter = 0
+oversampling_override = 1.0
+title = "Open a Directory"
+initial_position = 1
+size = Vector2i(1280, 720)
+file_mode = 2
+access = 2
+
+[node name="Start Editing Button" type="Button" parent="Map Editor UI/Create Map Menu"]
+custom_minimum_size = Vector2(256, 64)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -64.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Start Text" type="RichTextLabel" parent="Map Editor UI/Create Map Menu/Start Editing Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "Start Editing"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Choose Map Dir" type="FileDialog" parent="Map Editor UI"]
+unique_name_in_owner = true
+canvas_item_default_texture_filter = 0
+oversampling_override = 1.0
+title = "Open a Directory"
+initial_position = 1
+size = Vector2i(1280, 720)
+file_mode = 2
 access = 2
 
 [node name="Edit Map" type="FileDialog" parent="Map Editor UI"]
@@ -206,12 +612,112 @@ oversampling_override = 1.0
 title = "Open a File"
 initial_position = 1
 size = Vector2i(1280, 720)
-visible = true
 file_mode = 0
 access = 2
+
+[node name="Editor" type="Node2D" parent="."]
+visible = false
+
+[node name="Background" type="Sprite2D" parent="Editor"]
+modulate = Color(0, 0, 0, 1)
+scale = Vector2(1280, 720)
+texture = ExtResource("4_u4ibt")
+
+[node name="Song UI" type="Control" parent="Editor"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1280, 720)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -640.0
+offset_top = -360.0
+offset_right = 640.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Editor/Song UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 128
+theme_override_constants/margin_top = 128
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 88
+
+[node name="Debug UI" type="VBoxContainer" parent="Editor/Song UI/MarginContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Song Position In Beats Text" type="RichTextLabel" parent="Editor/Song UI/MarginContainer/Debug UI"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+bbcode_enabled = true
+text = "Song position in beats: "
+vertical_alignment = 1
+
+[node name="Current Measure Text" type="RichTextLabel" parent="Editor/Song UI/MarginContainer/Debug UI"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+bbcode_enabled = true
+text = "Current measure: "
+vertical_alignment = 1
+
+[node name="Exit Progress Bar" type="TextureProgressBar" parent="Editor/Song UI"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 32.0
+offset_right = 75.0
+offset_bottom = 72.0
+fill_mode = 5
+nine_patch_stretch = true
+texture_progress = ExtResource("4_u4ibt")
+
+[node name="Camera2D" type="Camera2D" parent="Editor"]
+zoom = Vector2(1.5, 1.5)
+
+[node name="Lanes Holder" type="Node2D" parent="Editor" groups=["lanes_holder"]]
+unique_name_in_owner = true
+
+[node name="Lane 0" parent="Editor/Lanes Holder" instance=ExtResource("6_gxr6b")]
+position = Vector2(-195, 0)
+script = null
+
+[node name="Lane 1" parent="Editor/Lanes Holder" instance=ExtResource("6_gxr6b")]
+position = Vector2(-65, 0)
+script = null
+
+[node name="Lane 2" parent="Editor/Lanes Holder" instance=ExtResource("6_gxr6b")]
+position = Vector2(65, 0)
+script = null
+
+[node name="Lane 3" parent="Editor/Lanes Holder" instance=ExtResource("6_gxr6b")]
+position = Vector2(195, 0)
+script = null
 
 [connection signal="meta_clicked" from="Map Editor UI/Start Menu/Map Editor Text" to="Map Editor UI/Start Menu/Map Editor Text" method="_on_meta_clicked"]
 [connection signal="pressed" from="Map Editor UI/Start Menu/HBoxContainer/Create Map Button" to="." method="_on_create_map_button_pressed"]
 [connection signal="pressed" from="Map Editor UI/Start Menu/HBoxContainer/Edit Map Button" to="." method="_on_edit_map_button_pressed"]
-[connection signal="file_selected" from="Map Editor UI/Create Map" to="." method="_on_create_map_file_selected"]
+[connection signal="meta_clicked" from="Map Editor UI/Create Map Menu/Map Editor Text" to="Map Editor UI/Create Map Menu/Map Editor Text" method="_on_meta_clicked"]
+[connection signal="text_changed" from="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer/HBoxContainer/Name/Enter Map Name" to="." method="_on_enter_map_name_text_changed"]
+[connection signal="text_changed" from="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer/HBoxContainer/Artist/Enter Artist Name" to="." method="_on_enter_artist_name_text_changed"]
+[connection signal="text_changed" from="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer/HBoxContainer/Mapper/Enter Mapper Name" to="." method="_on_enter_mapper_name_text_changed"]
+[connection signal="text_changed" from="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer/HBoxContainer/Description/Enter Description" to="." method="_on_enter_description_text_changed"]
+[connection signal="pressed" from="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer/HBoxContainer3/Choose Cover Button" to="." method="_on_choose_cover_button_pressed"]
+[connection signal="file_selected" from="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer/HBoxContainer3/Choose Cover" to="." method="_on_choose_cover_file_selected"]
+[connection signal="pressed" from="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer/HBoxContainer4/Choose Audio Button" to="." method="_on_choose_audio_button_pressed"]
+[connection signal="file_selected" from="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer/HBoxContainer4/Choose Audio Button/Choose Audio" to="." method="_on_choose_audio_file_selected"]
+[connection signal="value_changed" from="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer/HBoxContainer2/BPM/Enter BPM" to="." method="_on_enter_bpm_value_changed"]
+[connection signal="value_changed" from="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer/HBoxContainer2/BPM2/HBoxContainer/Enter Measure" to="." method="_on_enter_measure_value_changed"]
+[connection signal="value_changed" from="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer/HBoxContainer2/BPM2/HBoxContainer/Enter Beat" to="." method="_on_enter_beat_value_changed"]
+[connection signal="value_changed" from="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer/HBoxContainer2/Scroll Speed/Enter Scroll Speed" to="." method="_on_enter_scroll_speed_value_changed"]
+[connection signal="pressed" from="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer/Folder Path Setting/Change Path Button" to="." method="_on_change_path_button_pressed"]
+[connection signal="dir_selected" from="Map Editor UI/Create Map Menu/ScrollContainer/VBoxContainer/Folder Path Setting/Set Map Folder" to="." method="_on_set_map_folder_dir_selected"]
+[connection signal="pressed" from="Map Editor UI/Create Map Menu/Start Editing Button" to="." method="_on_start_editing_button_pressed"]
+[connection signal="file_selected" from="Map Editor UI/Choose Map Dir" to="." method="_on_create_map_file_selected"]
 [connection signal="file_selected" from="Map Editor UI/Edit Map" to="." method="_on_edit_map_file_selected"]
