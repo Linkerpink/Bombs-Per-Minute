@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://be01bwdwhdxkf"]
+[gd_scene load_steps=17 format=3 uid="uid://be01bwdwhdxkf"]
 
 [ext_resource type="Script" uid="uid://ct03tx1w2hpwg" path="res://scripts/main_menu.gd" id="1_ekxnf"]
 [ext_resource type="Texture2D" uid="uid://bp5mrbg4cg870" path="res://assets/sprites/bomb.png" id="1_l6cm7"]
@@ -8,11 +8,13 @@
 [ext_resource type="Resource" uid="uid://dxgw7ulndftag" path="res://maps/test.tres" id="4_8ln24"]
 [ext_resource type="Resource" uid="uid://dyi4655jtcrad" path="res://maps/fortnite_fan.tres" id="4_oa1go"]
 [ext_resource type="Resource" uid="uid://c8wcfkjrno4dc" path="res://maps/through_the_fire_and_flames.tres" id="7_tbmy8"]
-[ext_resource type="Texture2D" uid="uid://dle0ybnmjcpls" path="res://assets/sprites/bpm logo.png" id="8_5dd4i"]
+[ext_resource type="Texture2D" uid="uid://cnwi4j30koj3p" path="res://assets/sprites/BPM logo new.png" id="8_1ajci"]
+[ext_resource type="Texture2D" uid="uid://blv3gvc1qab43" path="res://assets/sprites/gradient.png" id="8_7b55j"]
 [ext_resource type="Texture2D" uid="uid://4sc2fo6k0b40" path="res://assets/sprites/white.png" id="9_jk1qb"]
 [ext_resource type="Script" uid="uid://ccc7yl50r2vg" path="res://scripts/random_message.gd" id="9_lgwnu"]
 [ext_resource type="Texture2D" uid="uid://kxljvxs1eufn" path="res://assets/sprites/settings icon temp.png" id="12_flqon"]
 [ext_resource type="PackedScene" uid="uid://dm87npbvgb0c4" path="res://scenes/settings_menu.tscn" id="13_rcqid"]
+[ext_resource type="Texture2D" uid="uid://dyewo880mqilm" path="res://assets/sprites/bomb new.png" id="14_7b55j"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_flqon"]
 corner_radius_top_left = 16
@@ -31,6 +33,17 @@ mouse_filter = 2
 script = ExtResource("1_ekxnf")
 all_maps = Array[ExtResource("2_rtw2f")]([ExtResource("3_rtw2f"), ExtResource("4_oa1go"), ExtResource("3_tbmy8"), ExtResource("4_8ln24"), ExtResource("7_tbmy8")])
 
+[node name="Gradient" type="TextureRect" parent="."]
+z_index = -1000
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_7b55j")
+expand_mode = 1
+
 [node name="Main Menu UI" type="Control" parent="."]
 unique_name_in_owner = true
 layout_mode = 1
@@ -46,13 +59,29 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -511.95825
-offset_top = 35.0
-offset_right = 511.95825
-offset_bottom = 516.0
+offset_left = -471.0
+offset_top = 26.0
+offset_right = 470.21973
+offset_bottom = 520.0
 grow_horizontal = 2
 mouse_filter = 2
-texture = ExtResource("8_5dd4i")
+texture = ExtResource("8_1ajci")
+expand_mode = 1
+
+[node name="Logo Shadow" type="TextureRect" parent="Main Menu UI/Logo"]
+self_modulate = Color(0, 0, 0, 0.29411766)
+z_index = -100
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -470.60986
+offset_top = 8.0
+offset_right = 470.60986
+offset_bottom = 502.0
+grow_horizontal = 2
+mouse_filter = 2
+texture = ExtResource("8_1ajci")
 expand_mode = 1
 
 [node name="Random Message UI" type="Control" parent="Main Menu UI"]
@@ -377,12 +406,38 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Settings Button" type="TextureButton" parent="Main Menu UI"]
+custom_minimum_size = Vector2(72, 72)
 layout_mode = 0
 offset_right = 72.0
 offset_bottom = 72.0
 texture_normal = ExtResource("12_flqon")
 ignore_texture_size = true
 stretch_mode = 0
+
+[node name="Quit" type="HBoxContainer" parent="Main Menu UI"]
+layout_mode = 0
+offset_left = 72.0
+offset_right = 281.0
+offset_bottom = 72.0
+
+[node name="Quit Progress Bar" type="TextureProgressBar" parent="Main Menu UI/Quit"]
+visible = false
+custom_minimum_size = Vector2(93, 69)
+layout_mode = 2
+value = 100.0
+fill_mode = 5
+nine_patch_stretch = true
+texture_progress = ExtResource("14_7b55j")
+
+[node name="Quit Text" type="RichTextLabel" parent="Main Menu UI/Quit"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "quitting..."
+fit_content = true
+vertical_alignment = 1
 
 [node name="Settings" parent="Main Menu UI" instance=ExtResource("13_rcqid")]
 unique_name_in_owner = true
@@ -528,6 +583,7 @@ vertical_alignment = 1
 [connection signal="pressed" from="Main Menu UI/User Selection Window/VBoxContainer/Add User Button" to="." method="_on_add_user_button_pressed"]
 [connection signal="pressed" from="Main Menu UI/Warning Message/Close Button" to="." method="_on_close_button_pressed"]
 [connection signal="pressed" from="Main Menu UI/Settings Button" to="." method="_on_settings_button_pressed"]
+[connection signal="meta_clicked" from="Main Menu UI/Quit/Quit Text" to="Main Menu UI/Quit/Quit Text" method="_on_meta_clicked"]
 [connection signal="pressed" from="Song Select UI/VBoxContainer/Start Song Button" to="." method="_on_start_song_button_pressed"]
 [connection signal="pressed" from="Song Select UI/Back Button" to="." method="_on_back_button_pressed"]
 

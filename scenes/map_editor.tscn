@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6tqu5scwaqy5"]
+[gd_scene load_steps=5 format=3 uid="uid://b6tqu5scwaqy5"]
 
 [ext_resource type="Script" uid="uid://dq1s2likq4iwf" path="res://scripts/map_editor.gd" id="1_8qdu6"]
+[ext_resource type="Texture2D" uid="uid://blv3gvc1qab43" path="res://assets/sprites/gradient.png" id="2_8qdu6"]
 [ext_resource type="Texture2D" uid="uid://4sc2fo6k0b40" path="res://assets/sprites/white.png" id="4_u4ibt"]
 [ext_resource type="PackedScene" uid="uid://hijd88fh3njf" path="res://scenes/lane.tscn" id="6_gxr6b"]
 
@@ -16,6 +17,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Gradient" type="TextureRect" parent="Map Editor UI"]
+z_index = -1000
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_8qdu6")
+expand_mode = 1
+
 [node name="Start Menu" type="Control" parent="Map Editor UI"]
 visible = false
 layout_mode = 1
@@ -24,16 +36,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="TextureRect" type="TextureRect" parent="Map Editor UI/Start Menu"]
-self_modulate = Color(0, 0, 0, 1)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_u4ibt")
 
 [node name="Map Editor Text" type="RichTextLabel" parent="Map Editor UI/Start Menu"]
 unique_name_in_owner = true
@@ -114,16 +116,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="TextureRect" type="TextureRect" parent="Map Editor UI/Create Map Menu"]
-self_modulate = Color(0, 0, 0, 1)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_u4ibt")
 
 [node name="Map Editor Text" type="RichTextLabel" parent="Map Editor UI/Create Map Menu"]
 layout_mode = 1
@@ -311,7 +303,7 @@ vertical_alignment = 1
 unique_name_in_owner = true
 canvas_item_default_texture_filter = 0
 oversampling_override = 1.0
-title = "Choose Album Cover"
+title = "Open a File"
 initial_position = 1
 size = Vector2i(1280, 720)
 file_mode = 0
@@ -370,7 +362,7 @@ vertical_alignment = 1
 unique_name_in_owner = true
 canvas_item_default_texture_filter = 0
 oversampling_override = 1.0
-title = "Choose Audio"
+title = "Open a File"
 initial_position = 1
 size = Vector2i(1280, 720)
 file_mode = 0

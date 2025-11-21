@@ -1,6 +1,8 @@
 extends Control
 class_name MainMenu
 
+#region Variables
+
 @onready var main_menu_ui : Control = %"Main Menu UI"
 @onready var song_select_ui : Control = %"Song Select UI"
 
@@ -42,12 +44,33 @@ enum MenuStates
 
 var menu_state : MenuStates
 
+# Quit variables
+var quit_timer : float = -.25
+@export var quit_timer_length : float = .5
+@onready var quit_text: RichTextLabel = $"Main Menu UI/Quit/Quit Text"
+
+#endregion
+
 func _ready() -> void:
 	set_menu_state(MenuStates.Main)
 	_load_maps()
 	_choose_random_map()
 	set_current_user_text()
 	_update_users_window()
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("menu_back"):
+		set_menu_state(MenuStates.Main)
+		quit_timer = -.25
+		
+	if Input.is_action_pressed("menu_back") and menu_state == MenuStates.Main:
+		quit_timer += delta
+		quit_text.self_modulate.a = quit_timer * 5
+		
+		if quit_timer > quit_timer_length:
+			get_tree().quit()
+			
+	quit_text.self_modulate.a = lerpf(quit_text.self_modulate.a, 0, quit_timer_length * delta * 15)
 
 func set_menu_state(_state : MenuStates):
 	user_selection_window.fold()

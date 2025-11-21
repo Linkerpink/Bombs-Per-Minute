@@ -28,21 +28,49 @@ var nm_notes : Array[Dictionary] = [
 	{ "lane": 0, "measure": 0, "beat": 1, "subdivision": 0, "end_beat": 0 , "end_subdivision": 0.0, "type": "note" },
 ]
 
+enum MenuStates
+{
+	Main,
+	CreateMap,
+	EditMap
+}
+
+var menu_state : MenuStates = MenuStates.Main
 
 func _ready() -> void:
-	start_menu.show()
-	create_map_menu.hide()
-	
-	choose_map_dir.hide()
-	edit_map.hide()
+	menu_state = MenuStates.Main
 
+func _process(delta: float) -> void:
+	match menu_state:
+		MenuStates.Main:
+				start_menu.show()
+				create_map_menu.hide()
+				
+				choose_map_dir.hide()
+				edit_map.hide()
+				
+				if Input.is_action_just_pressed("menu_back"):
+					get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+					
+		MenuStates.CreateMap:
+			start_menu.hide()
+			create_map_menu.show()
+			
+			if Input.is_action_just_pressed("menu_back"):
+				menu_state = MenuStates.Main
+		
+		MenuStates.EditMap:
+			edit_map.show()
+			choose_map_dir.hide()
+			
+			if Input.is_action_just_pressed("menu_back"):
+				menu_state = MenuStates.Main
 
 func _on_choose_map_dir_button_pressed() -> void:
 	pass
 
 func _on_edit_map_button_pressed() -> void:
-	edit_map.show()
-	choose_map_dir.hide()
+	menu_state = MenuStates.EditMap
 
 func _on_choose_map_dir_file_selected(path: String) -> void:
 	pass
@@ -51,9 +79,7 @@ func _on_edit_map_file_selected(path: String) -> void:
 	print("opened file: " + str(path))
 
 func _on_create_map_button_pressed() -> void:
-	start_menu.hide()
-	create_map_menu.show()
-
+	menu_state = MenuStates.CreateMap
 
 # Map name
 func _on_enter_map_name_text_changed(new_text: String) -> void:

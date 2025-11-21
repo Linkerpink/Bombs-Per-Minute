@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://krcljkpla2j4"
+path="res://.godot/imported/Fortnite Fan (Ronnie Flex - Fan ft. Famke Louise PARODIE).mp3-57bb49b2ad7461db646f384fe4240bf2.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/Fortnite Fan (Ronnie Flex - Fan ft. Famke Louise PARODIE).mp3"
+dest_files=["res://.godot/imported/Fortnite Fan (Ronnie Flex - Fan ft. Famke Louise PARODIE).mp3-57bb49b2ad7461db646f384fe4240bf2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

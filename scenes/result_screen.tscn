@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bgim54ex5wo7g"]
+[gd_scene load_steps=4 format=3 uid="uid://bgim54ex5wo7g"]
 
 [ext_resource type="Script" uid="uid://dkk2qppeu5hwt" path="res://scripts/result_screen.gd" id="1_p64tj"]
+[ext_resource type="Texture2D" uid="uid://blv3gvc1qab43" path="res://assets/sprites/gradient.png" id="2_rdjqi"]
 [ext_resource type="Texture2D" uid="uid://c3y0r86seo8ru" path="res://assets/sprites/album covers/coral chorus.jpg" id="8_vpy16"]
 
 [node name="Result Screen" type="Control"]
@@ -11,6 +12,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_p64tj")
+
+[node name="Gradient" type="TextureRect" parent="."]
+z_index = -1000
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_rdjqi")
+expand_mode = 1
 
 [node name="Album Cover" type="TextureRect" parent="."]
 unique_name_in_owner = true
